@@ -7,12 +7,12 @@
 
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="therealpoker.MainController">
-   <children>
-      <Button layoutX="281.0" layoutY="188.0" mnemonicParsing="false" onAction="#play" text="Play" />
-      <Label layoutX="210.0" layoutY="33.0" text="ชื่อเกม">
-         <font>
-            <Font size="77.0" />
-         </font>
-      </Label>
-   </children>
+    <children>
+        <Button layoutX="281.0" layoutY="188.0" mnemonicParsing="false" onAction="#play" text="Play" />
+        <Label layoutX="210.0" layoutY="33.0" text="ชื่อเกม">
+            <font>
+                <Font size="77.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

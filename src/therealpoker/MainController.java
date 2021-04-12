@@ -24,10 +24,10 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-        @FXML
-    private void play(ActionEvent event)
-    {
+    }
+
+    @FXML
+    private void play(ActionEvent event) {
         System.out.println("sawasdeekrub thansamachick");
     }
 }

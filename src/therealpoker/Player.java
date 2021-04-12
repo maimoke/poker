@@ -12,43 +12,43 @@ import java.util.ArrayList;
  * @author Moke
  */
 public class Player {
-    public int credit=0;
-    ArrayList<Card> cardOnHand =new ArrayList<Card>();
-    public boolean fold=false;
-    public boolean check=false;
-    
-    Player(int credit){
-    this.credit=credit;
+
+    public int credit = 0;
+    ArrayList<Card> cardOnHand = new ArrayList<Card>();
+    public boolean fold = false;
+    public boolean check = false;
+
+    Player(int credit) {
+        this.credit = credit;
     }
-    
-    public void draw(Card card){
+
+    public void draw(Card card) {
         cardOnHand.add(card);
     }
-    
-    public Card getCard(int i){
+
+    public Card getCard(int i) {
         return cardOnHand.get(i);
     }
-    
-    public void clearCard(){
+
+    public void clearCard() {
         cardOnHand.clear();
     }
-    
-    public void fold(){
-        this.fold=true;
+
+    public void fold() {
+        this.fold = true;
     }
-    
-    public void check(){
-        this.check=true;
+
+    public void check() {
+        this.check = true;
     }
-    
-    public int call(int raise){
-        this.credit=this.credit-raise;
+
+    public int call(int raise) {
+        this.credit = this.credit - raise;
         return raise;
     }
-    
-    public int raise(int raise)
-    {
-        this.credit=this.credit-raise;
+
+    public int raise(int raise) {
+        this.credit = this.credit - raise;
         return raise;
     }
 }
