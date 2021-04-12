@@ -5,15 +5,15 @@
  */
 package therealpoker;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Moke
  */
 public class Player {
     public int credit=0;
-    public int bet=0;
-    public int cardNow=0;
-    Card[] cardOnHand =new Card[5];
+    ArrayList<Card> cardOnHand =new ArrayList<Card>();
     public boolean fold=false;
     public boolean check=false;
     
@@ -22,16 +22,15 @@ public class Player {
     }
     
     public void draw(Card card){
-        cardOnHand[cardNow]=card;
-        cardNow++;
+        cardOnHand.add(card);
     }
     
     public Card getCard(int i){
-        return cardOnHand[i];
+        return cardOnHand.get(i);
     }
     
     public void clearCard(){
-        
+        cardOnHand.clear();
     }
     
     public void fold(){
@@ -42,13 +41,14 @@ public class Player {
         this.check=true;
     }
     
-    public void call(){
+    public int call(int raise){
+        this.credit=this.credit-raise;
+        return raise;
     }
     
     public int raise(int raise)
     {
         this.credit=this.credit-raise;
-        this.bet=this.bet+raise;
         return raise;
     }
 }

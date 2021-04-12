@@ -18,7 +18,7 @@ public class Table {
     }
     
     //Methods
-    public void draw(Card[] cardList) {//Draw card from deck to table
+    public void draw(Card cardList) {//Draw card from deck to table
         card.add(cardList);
     }
     
