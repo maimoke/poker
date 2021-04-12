@@ -1,34 +1,20 @@
 package therealpoker;
 
-public class Card{
-    public int volume;
-    public int suit;
-    public String name;
+class Card {
+    private int volume;
+    private String type;
+    private String name;
 
-    public Card() {
-    }
-
-    public Card(int volume, int suit) {
+    public Card(int volume, String type, String name) {
         this.volume = volume;
-        this.suit = suit;
-    }
-    
-    public Card(int volume, int suit, String name) {
-        this.volume = volume;
-        this.suit = suit;
+        this.type = type;
         this.name = name;
     }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public int getSuit() {
-        return suit;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    public Card() {
+    }    
+       
+   
+    
+    
 }
