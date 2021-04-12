@@ -17,7 +17,7 @@ public class Player {
     public boolean fold=false;
     public boolean check=false;
     
-    Player(int credit,int bet){
+    Player(int credit){
     this.credit=credit;
     }
     
