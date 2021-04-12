@@ -2,7 +2,6 @@ package therealpoker;
 import java.util.ArrayList;
 import java.util.Collections;
 public class Deck {     
-    private int cardAmount=0;
     ArrayList<Card> cardIndeck = new ArrayList<Card>();
     
     public Deck() {
@@ -66,9 +65,8 @@ public class Deck {
     
     
     Card draw(){       
-        Card c = cardIndeck.get(cardAmount);
-        cardIndeck.remove(cardAmount);
-        cardAmount++;
+        Card c = cardIndeck.get(0);
+        cardIndeck.remove(0);
         return c;
     }
     
@@ -76,8 +74,7 @@ public class Deck {
          Collections.shuffle(cardIndeck);         
     }
     void discard(){
-        cardIndeck.remove(cardAmount);
-        cardAmount++;
+        cardIndeck.remove(0);
     }
 //    public static void main(String[] args) {
 //        Deck d= new Deck();
