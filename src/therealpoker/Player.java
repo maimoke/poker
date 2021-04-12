@@ -13,7 +13,7 @@ public class Player {
     public int credit=0;
     public int bet=0;
     public int cardNow=0;
-    public Card[] cardOnHand =new Card[];
+    Card[] cardOnHand =new Card[5];
     public boolean fold=false;
     public boolean check=false;
     
@@ -43,12 +43,12 @@ public class Player {
     }
     
     public void call(){
-        this.bet=
     }
     
     public int raise(int raise)
     {
+        this.credit=this.credit-raise;
         this.bet=this.bet+raise;
-        return this.bet;
+        return raise;
     }
 }
