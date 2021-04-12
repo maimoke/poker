@@ -3,7 +3,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 public class Deck {     
     ArrayList<Card> cardIndeck = new ArrayList<Card>();
-    
+    public Deck(int a)
+    { 
+         cardIndeck.add(new Card(5,4,"5Spade"));
+         cardIndeck.add(new Card(5,3,"5Heart"));
+         cardIndeck.add(new Card(6,4,"6Spade"));
+         cardIndeck.add(new Card(6,4,"6Spade"));
+         cardIndeck.add(new Card(12,2,"queenDiamond"));
+         cardIndeck.add(new Card(13,2,"kingDiamond"));
+         cardIndeck.add(new Card(11,4,"jackSpade"));
+         
+    }
     public Deck() {
          cardIndeck.add(new Card(2,4,"2Spade"));
          cardIndeck.add(new Card(3,4,"3Spade"));
