@@ -20,7 +20,7 @@ public class Deck {
     void shuffle(){
          Random rand = new Random();                   
          for (int i = 0; i < cardIndeck.length; i++) {
-         int r = i + rand.nextInt(52 - i);
+         int r = i + rand.nextInt(cardIndeck.length - i);
          Card temp = cardIndeck[r];
              cardIndeck[r] = cardIndeck[i];
              cardIndeck[i] = temp;
