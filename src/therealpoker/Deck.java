@@ -2,7 +2,11 @@ package therealpoker;
 import java.util.Random;
 public class Deck {
     Card[] cardIndeck = new Card[52];    
-    int cardAmount;
+    int cardAmount=0;
+
+    public Deck() {
+    }
+    
     
     Card draw(){       
         Card[] temp = cardIndeck;        
