@@ -16,12 +16,10 @@ import javafx.stage.Stage;
  * @author WanwaiStdio
  */
 public class TheRealPoker extends Application{
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         Pane root = loader.load();
-
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
