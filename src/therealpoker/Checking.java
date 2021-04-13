@@ -29,6 +29,7 @@ public class Checking {
         score3 = 0;
         score4 = 0;
         score5 = 0;
+        score6 = 0;
         checkingCard.add(p.cardOnHand.get(0));
         checkingCard.add(p.cardOnHand.get(1));
         checkingCard.add(t.card.get(0));
