@@ -14,12 +14,13 @@ import java.util.Collections;
  */
 public class Checking {
 
-    public int score1;
-    public int score2;
-    public int score3;
-    public int score4;
-    public int score5;
-    public int score;
+    public double score1;
+    public double score2;
+    public double score3;
+    public double score4;
+    public double score5;
+    public double score6;
+    public double score;
     ArrayList<Card> checkingCard = new ArrayList<Card>();
 
     Checking(Player p, Table t) {
@@ -61,10 +62,10 @@ public class Checking {
         if (score == 0) {
             score = checkTwoPair();
         }
-        if (score == 0){
+        if (score == 0) {
             score = checkPair();
         }
-        if (score == 0){
+        if (score == 0) {
             score = checkHighCard();
         }
     }
@@ -72,7 +73,7 @@ public class Checking {
     public Checking() {
     }
 
-    public int checkRoyal() {
+    public double checkRoyal() {
         boolean pass = true;
         for (int suitItr = 1; suitItr <= 4; suitItr++) {
             int startPosItr = 0;
@@ -100,7 +101,7 @@ public class Checking {
         return score1 * 100000000;
     }
 
-    public int checkStraightFlush() {
+    public double checkStraightFlush() {
         for (int suitItr = 1; suitItr <= 4; suitItr++) {
             for (int startVolumeItr = 13; startVolumeItr > 4; startVolumeItr--) {
                 boolean pass = true;
@@ -130,7 +131,7 @@ public class Checking {
         return score1 * 100000000;
     }
 
-    public int checkFourOfKind() {
+    public double checkFourOfKind() {
         for (int startPosItr = 0; startPosItr < 4; startPosItr++) {
             boolean pass = true;
             for (int posItr = startPosItr + 1; posItr < startPosItr + 4; posItr++) {
@@ -147,7 +148,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000;
     }
 
-    public int checkFullHouse() {
+    public double checkFullHouse() {
 
         for (int startPosItr = 0; startPosItr < 5; startPosItr++) {
             boolean pass = true;
@@ -189,7 +190,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000 + score3 * 10000;
     }
 
-    public int checkFlush() {
+    public double checkFlush() {
 
         for (int startPosItr = 0; startPosItr < 3; startPosItr++) {
             boolean pass = true;
@@ -207,7 +208,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000;
     }
 
-    public int checkStraight() {
+    public double checkStraight() {
         for (int startVolumeItr = 14; startVolumeItr > 4; startVolumeItr--) {
             boolean pass = true;
             for (int volumeItr = startVolumeItr; volumeItr > startVolumeItr - 5; volumeItr--) {
@@ -238,7 +239,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000;
     }
 
-    public int checkThreeOfKind() {
+    public double checkThreeOfKind() {
         for (int startPosItr = 0; startPosItr < 5; startPosItr++) {
             boolean pass = true;
             for (int posItr = startPosItr + 1; posItr < startPosItr + 3; posItr++) {
@@ -266,7 +267,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000 + score3 * 10000 + score4 * 100;
     }
 
-    public int checkTwoPair() {
+    public double checkTwoPair() {
 
         for (int startPosItr = 0; startPosItr < 6; startPosItr++) {
             boolean pass = true;
@@ -308,7 +309,7 @@ public class Checking {
 
         if (score1 == 3) {
             for (int posItr = 0; posItr < 7; posItr++) {
-                if (checkingCard.get(posItr).getVolume() > score4 && checkingCard.get(posItr).getVolume() != score2&&checkingCard.get(posItr).getVolume() != score3) {
+                if (checkingCard.get(posItr).getVolume() > score4 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3) {
                     score4 = checkingCard.get(posItr).getVolume();
                 }
             }
@@ -317,7 +318,7 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000 + score3 * 10000 + score4 * 100;
     }
 
-    public int checkPair() {
+    public double checkPair() {
 
         for (int startPosItr = 0; startPosItr < 6; startPosItr++) {
             boolean pass = true;
@@ -327,11 +328,11 @@ public class Checking {
                 }
             }
             if (pass) {
-                    score1 = 2;
-                    score2 = checkingCard.get(startPosItr).getVolume();
+                score1 = 2;
+                score2 = checkingCard.get(startPosItr).getVolume();
             }
         }
-        
+
         if (score1 == 2) {
             for (int posItr = 0; posItr < 7; posItr++) {
                 if (checkingCard.get(posItr).getVolume() > score3 && checkingCard.get(posItr).getVolume() != score2) {
@@ -339,12 +340,12 @@ public class Checking {
                 }
             }
             for (int posItr = 0; posItr < 7; posItr++) {
-                if (checkingCard.get(posItr).getVolume() > score4 && checkingCard.get(posItr).getVolume() != score2&& checkingCard.get(posItr).getVolume() != score3) {
+                if (checkingCard.get(posItr).getVolume() > score4 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3) {
                     score4 = checkingCard.get(posItr).getVolume();
                 }
             }
             for (int posItr = 0; posItr < 7; posItr++) {
-                if (checkingCard.get(posItr).getVolume() > score5 && checkingCard.get(posItr).getVolume() != score2&& checkingCard.get(posItr).getVolume() != score3 && checkingCard.get(posItr).getVolume() != score4) {
+                if (checkingCard.get(posItr).getVolume() > score5 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3 && checkingCard.get(posItr).getVolume() != score4) {
                     score5 = checkingCard.get(posItr).getVolume();
                 }
             }
@@ -352,30 +353,38 @@ public class Checking {
         return score1 * 100000000 + score2 * 1000000 + score3 * 10000 + score4 * 100 + score5;
     }
 
-    public int checkHighCard(){
-        score1=1;
-                for (int posItr=0;posItr<7;posItr++){
-            if (checkingCard.get(posItr).getVolume()>score2)
-                score2=checkingCard.get(posItr).getVolume();
+    public double checkHighCard() {
+        score1 = 1;
+        for (int posItr = 0; posItr < 7; posItr++) {
+            if (checkingCard.get(posItr).getVolume() > score2) {
+                score2 = checkingCard.get(posItr).getVolume();
+            }
         }
-                        for (int posItr=0;posItr<7;posItr++){
-            if (checkingCard.get(posItr).getVolume()>score3&&checkingCard.get(posItr).getVolume()!=score2)
-                score3=checkingCard.get(posItr).getVolume();
+        for (int posItr = 0; posItr < 7; posItr++) {
+            if (checkingCard.get(posItr).getVolume() > score3 && checkingCard.get(posItr).getVolume() != score2) {
+                score3 = checkingCard.get(posItr).getVolume();
+            }
         }
-                                for (int posItr=0;posItr<7;posItr++){
-            if (checkingCard.get(posItr).getVolume()>score4&&checkingCard.get(posItr).getVolume()!=score2&&checkingCard.get(posItr).getVolume()!=score3)
-                score4=checkingCard.get(posItr).getVolume();
+        for (int posItr = 0; posItr < 7; posItr++) {
+            if (checkingCard.get(posItr).getVolume() > score4 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3) {
+                score4 = checkingCard.get(posItr).getVolume();
+            }
         }
-                                        for (int posItr=0;posItr<7;posItr++){
-            if (checkingCard.get(posItr).getVolume()>score5&&checkingCard.get(posItr).getVolume()!=score2&&checkingCard.get(posItr).getVolume()!=score3&&checkingCard.get(posItr).getVolume()!=score4)
-                score5=checkingCard.get(posItr).getVolume();
+        for (int posItr = 0; posItr < 7; posItr++) {
+            if (checkingCard.get(posItr).getVolume() > score5 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3 && checkingCard.get(posItr).getVolume() != score4) {
+                score5 = checkingCard.get(posItr).getVolume();
+            }
         }
-        return score1 * 100000000 + score2 * 1000000 + score3 * 10000 + score4 * 100 + score5;     
+        for (int posItr = 0; posItr < 7; posItr++) {
+            if (checkingCard.get(posItr).getVolume() > score6 && checkingCard.get(posItr).getVolume() != score2 && checkingCard.get(posItr).getVolume() != score3 && checkingCard.get(posItr).getVolume() != score4&& checkingCard.get(posItr).getVolume() != score5) {
+                score6 = checkingCard.get(posItr).getVolume();
+            }
+        }
+        return score1 * 100000000 + score2 * 1000000 + score3 * 10000 + score4 * 100 + score5 +0.01*score6;
     }
-    
-    
-    public int getScore() {
-        return score;
+
+    public long getScore() {
+        return (long)(score*100);
     }
 
     public void volumeSort() {
