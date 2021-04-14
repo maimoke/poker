@@ -241,6 +241,71 @@
                   <Image url="@รวมไพ่/Player/dealer.png" />
                </image>
             </ImageView>
+            <Button layoutX="236.0" layoutY="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="103.0" layoutY="296.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="193.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="457.0" layoutY="591.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="722.0" layoutY="584.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="972.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="1054.0" layoutY="311.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="948.0" layoutY="110.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+               <font>
+                  <Font name="Agency FB Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="400.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Spade/AceOfSpade.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="500.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Spade/KingOfSpade.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="600.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Spade/QueenOfSpade.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="700.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Spade/JackOfSpade.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="800.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Spade/TenOfSpade.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
