@@ -37,6 +37,8 @@ public class MainController implements Initializable {
     private Button btn_check;
     @FXML
     private Button btn_call;
+    @FXML
+    private AnchorPane Game;
 
     /**
      * Initializes the controller class.
@@ -44,15 +46,19 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        MainMenu.setVisible(true);
+        Game.setVisible(false);
     }
 
     @FXML
     private void play(ActionEvent event) {
         System.out.println("sawasdeekrub thansamachick");
-        
+        MainMenu.setVisible(false);
+        Game.setVisible(true);
     }
 
     @FXML
     private void quit(ActionEvent event) {
+        System.exit(0);
     }
 }

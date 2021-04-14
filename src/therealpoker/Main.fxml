@@ -101,7 +101,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="720.0" prefWidth="1280.0" visible="false">
+      <AnchorPane fx:id="Game" prefHeight="720.0" prefWidth="1280.0" visible="false">
          <children>
             <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
