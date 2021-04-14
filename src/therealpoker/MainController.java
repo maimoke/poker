@@ -55,6 +55,12 @@ public class MainController implements Initializable {
         System.out.println("sawasdeekrub thansamachick");
         MainMenu.setVisible(false);
         Game.setVisible(true);
+        
+        //gameplay button+textfield
+        btn_fold.setVisible(false);
+        fill_raise.setVisible(false);
+        btn_check.setVisible(false);
+        btn_call.setVisible(false);
     }
 
     @FXML
