@@ -17,11 +17,11 @@
 
 <AnchorPane id="AnchorPane" fx:id="stupid_pane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="therealpoker.MainController">
    <children>
-      <AnchorPane fx:id="MainMenu" prefHeight="720.0" prefWidth="1280.0" visible="false">
+      <AnchorPane fx:id="MainMenu" prefHeight="720.0" prefWidth="1280.0">
          <children>
             <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../รวมไพ่/UI/MainMenu.png" />
+                  <Image url="@รวมไพ่/UI/MainMenu.png" />
                </image>
             </ImageView>
             <Button fx:id="btn_play" layoutX="553.0" layoutY="387.0" mnemonicParsing="false" onAction="#play" prefHeight="80.0" prefWidth="200.0" text="Play">
@@ -105,7 +105,7 @@
          <children>
             <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../รวมไพ่/UI/GamePlay.png" />
+                  <Image url="@รวมไพ่/UI/GamePlay.png" />
                </image>
             </ImageView>
             <Button fx:id="btn_fold" layoutX="706.0" layoutY="650.0" mnemonicParsing="false" onAction="#play" prefHeight="20.0" prefWidth="100.0" text="Fold">
