@@ -196,42 +196,42 @@
                   </Lighting>
                </effect>
             </Button>
-            <ImageView fx:id="player1" fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player1" fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="29.0" onMouseClicked="#player1_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player2" fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player2" fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="241.0" onMouseClicked="#player2_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player2.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player3" fitHeight="150.0" fitWidth="200.0" layoutX="148.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player3" fitHeight="150.0" fitWidth="200.0" layoutX="148.0" layoutY="448.0" onMouseClicked="#player3_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player3.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player4" fitHeight="150.0" fitWidth="200.0" layoutX="427.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player4" fitHeight="150.0" fitWidth="200.0" layoutX="427.0" layoutY="481.0" onMouseClicked="#player4_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player5" fitHeight="150.0" fitWidth="200.0" layoutX="693.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player5" fitHeight="150.0" fitWidth="200.0" layoutX="693.0" layoutY="500.0" onMouseClicked="#player5_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player5.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player6" fitHeight="150.0" fitWidth="200.0" layoutX="969.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player6" fitHeight="150.0" fitWidth="200.0" layoutX="969.0" layoutY="441.0" onMouseClicked="#player6_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player6.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player7" fitHeight="150.0" fitWidth="200.0" layoutX="1018.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player7" fitHeight="150.0" fitWidth="200.0" layoutX="1018.0" layoutY="236.0" onMouseClicked="#player7_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="player8" fitHeight="150.0" fitWidth="200.0" layoutX="911.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="player8" fitHeight="150.0" fitWidth="200.0" layoutX="911.0" layoutY="35.0" onMouseClicked="#player8_remove" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Player/player8.png" />
                </image>
@@ -241,42 +241,42 @@
                   <Image url="@รวมไพ่/Player/dealer.png" />
                </image>
             </ImageView>
-            <Button layoutX="236.0" layoutY="90.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player1_sit_btn" layoutX="236.0" layoutY="90.0" mnemonicParsing="false" onAction="#player1_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="103.0" layoutY="296.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player2_sit_btn" layoutX="103.0" layoutY="296.0" mnemonicParsing="false" onAction="#player2_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="193.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player3_sit_btn" layoutX="193.0" layoutY="496.0" mnemonicParsing="false" onAction="#player3_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="457.0" layoutY="591.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player4_sit_btn" layoutX="457.0" layoutY="591.0" mnemonicParsing="false" onAction="#player4_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="722.0" layoutY="584.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player5_sit_btn" layoutX="722.0" layoutY="584.0" mnemonicParsing="false" onAction="#player5_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="972.0" layoutY="496.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player6_sit_btn" layoutX="972.0" layoutY="496.0" mnemonicParsing="false" onAction="#player6_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="1054.0" layoutY="311.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player7_sit_btn" layoutX="1054.0" layoutY="311.0" mnemonicParsing="false" onAction="#player7_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="948.0" layoutY="110.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
+            <Button fx:id="player8_sit_btn" layoutX="948.0" layoutY="110.0" mnemonicParsing="false" onAction="#player8_sit" prefHeight="40.0" prefWidth="90.0" text="Sit MFK!!">
                <font>
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
