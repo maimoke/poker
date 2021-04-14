@@ -23,7 +23,7 @@ public class TheRealPoker extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         Pane root = loader.load();
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.sizeToScene();
         primaryStage.setResizable(false);
