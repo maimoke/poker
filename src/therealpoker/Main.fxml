@@ -108,7 +108,7 @@
                   <Image url="@รวมไพ่/UI/GamePlay.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn_fold" layoutX="706.0" layoutY="650.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Fold">
+            <Button fx:id="btn_fold" layoutX="706.0" layoutY="665.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Fold">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -131,7 +131,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <TextField fx:id="fill_raise" layoutX="1065.0" layoutY="650.0" prefHeight="47.0" prefWidth="180.0" promptText="Raise............">
+            <TextField fx:id="fill_raise" layoutX="1065.0" layoutY="665.0" prefHeight="47.0" prefWidth="180.0" promptText="Raise............">
                <effect>
                   <Lighting diffuseConstant="1.64" specularConstant="0.79">
                      <bumpInput>
@@ -150,7 +150,7 @@
                   <Font size="25.0" />
                </font>
             </TextField>
-            <Button fx:id="btn_check" layoutX="824.0" layoutY="650.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Check">
+            <Button fx:id="btn_check" layoutX="824.0" layoutY="665.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Check">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -173,7 +173,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="btn_call" layoutX="944.0" layoutY="650.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Call">
+            <Button fx:id="btn_call" layoutX="944.0" layoutY="665.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Call">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -216,12 +216,12 @@
                   <Image url="@รวมไพ่/Player/player4.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="693.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="693.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Player/player5.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="944.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="969.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Player/player6.png" />
                </image>
