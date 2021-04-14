@@ -56,7 +56,7 @@ public class MainController implements Initializable {
         MainMenu.setVisible(false);
         Game.setVisible(true);
         
-        //gameplay button+textfield
+        //gameplay hide button+textfield
         btn_fold.setVisible(false);
         fill_raise.setVisible(false);
         btn_check.setVisible(false);
