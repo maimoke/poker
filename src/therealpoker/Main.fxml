@@ -306,7 +306,7 @@
                   <Image url="@รวมไพ่/Spade/TenOfSpade.png" />
                </image>
             </ImageView>
-            <Button fx:id="start_btn" layoutX="590.0" layoutY="201.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Start">
+            <Button fx:id="start_btn" layoutX="590.0" layoutY="201.0" mnemonicParsing="false" onAction="#start" prefHeight="40.0" prefWidth="100.0" text="Start">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
