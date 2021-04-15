@@ -17,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+
 /**
  * FXML Controller class
  *
@@ -24,13 +26,16 @@ import javafx.scene.layout.AnchorPane;
  */
 public class MainController implements Initializable {
 
+    public Deck d = new Deck();
+    public Player[] p = new Player[9];
+    public Table t = new Table();
     boolean[] player_ingame = new boolean[9]; //default false
     int player_turn = 0;
     boolean game_setup = false;
-    int playeringame=0;
-    int bigBlind=0;
-    int smallBlind=0;
-    int underTheGun=0;
+    int playeringame = 0;
+    int bigBlind = 0;
+    int smallBlind = 0;
+    int underTheGun = 0;
     @FXML
     private AnchorPane stupid_pane;
     @FXML
@@ -161,41 +166,139 @@ public class MainController implements Initializable {
     private Label money_p8;
     @FXML
     private Label pot;
+    @FXML
+    private Rectangle bg_p1;
+    @FXML
+    private Rectangle bg_p2;
+    @FXML
+    private Rectangle bg_p3;
+    @FXML
+    private Rectangle bg_p4;
+    @FXML
+    private Rectangle bg_p5;
+    @FXML
+    private Rectangle bg_p6;
+    @FXML
+    private Rectangle bg_p7;
+    @FXML
+    private Rectangle bg_p8;
+    @FXML
+    private Rectangle bg_pot;
 
     /**
      * Initializes the controller class.
      */
-    public void role_assign(){
-                int temp=(int)(Math.random()*69*playeringame);
-        for (int playerItr=1;temp>0;playerItr++)
-        {
-            if (playerItr==9)
-            {
-                playerItr=1;
+    public void updateMoney(){
+        if (player_ingame[1])
+        money_p1.setText(String.valueOf(p[1].getCredit()));
+        if (player_ingame[2])
+        money_p2.setText(String.valueOf(p[2].getCredit()));
+        if (player_ingame[3])
+        money_p3.setText(String.valueOf(p[3].getCredit()));
+        if (player_ingame[4])
+        money_p4.setText(String.valueOf(p[4].getCredit()));
+        if (player_ingame[5])
+        money_p5.setText(String.valueOf(p[5].getCredit()));
+        if (player_ingame[6])
+        money_p6.setText(String.valueOf(p[6].getCredit()));
+        if (player_ingame[7])
+        money_p7.setText(String.valueOf(p[7].getCredit()));
+        if (player_ingame[8])
+        money_p8.setText(String.valueOf(p[8].getCredit()));
+        pot.setText(String.valueOf(t.getPot()));
+    }
+    public void setMoneyVisible() {
+        if (player_ingame[1]) {
+            money_p1.setVisible(true);
+            bg_p1.setVisible(true);
+        } else {
+            money_p1.setVisible(false);
+            bg_p1.setVisible(false);
+        }
+        if (player_ingame[2]) {
+            money_p2.setVisible(true);
+            bg_p2.setVisible(true);
+        } else {
+            money_p2.setVisible(false);
+            bg_p2.setVisible(false);
+        }
+        if (player_ingame[3]) {
+            money_p3.setVisible(true);
+            bg_p3.setVisible(true);
+        } else {
+            money_p3.setVisible(false);
+            bg_p3.setVisible(false);
+        }
+        if (player_ingame[4]) {
+            money_p4.setVisible(true);
+            bg_p4.setVisible(true);
+        } else {
+            money_p4.setVisible(false);
+            bg_p4.setVisible(false);
+        }
+        if (player_ingame[5]) {
+            money_p5.setVisible(true);
+            bg_p5.setVisible(true);
+        } else {
+            money_p5.setVisible(false);
+            bg_p5.setVisible(false);
+        }
+        if (player_ingame[6]) {
+            money_p6.setVisible(true);
+            bg_p6.setVisible(true);
+        } else {
+            money_p6.setVisible(false);
+            bg_p6.setVisible(false);
+        }
+        if (player_ingame[7]) {
+            money_p7.setVisible(true);
+            bg_p7.setVisible(true);
+        } else {
+            money_p7.setVisible(false);
+            bg_p7.setVisible(false);
+        }
+        if (player_ingame[8]) {
+            money_p8.setVisible(true);
+            bg_p8.setVisible(true);
+        } else {
+            money_p8.setVisible(false);
+            bg_p8.setVisible(false);
+        }
+
+    }
+    public void update()
+    {
+    }
+
+    public void role_assign() {
+        int temp = (int) (Math.random() * 69 * playeringame);
+        for (int playerItr = 1; temp > 0; playerItr++) {
+            if (playerItr == 9) {
+                playerItr = 1;
             }
-            if (player_ingame[playerItr])
-            smallBlind=playerItr;
+            if (player_ingame[playerItr]) {
+                smallBlind = playerItr;
+            }
             temp--;
         }
-        for (int playerItr=smallBlind-1;bigBlind==0;playerItr--)
-        {
-            if (playerItr==0)
-            {
-                playerItr=8;
+        for (int playerItr = smallBlind - 1; bigBlind == 0; playerItr--) {
+            if (playerItr == 0) {
+                playerItr = 8;
             }
-            if (player_ingame[playerItr])
-                bigBlind=playerItr;
+            if (player_ingame[playerItr]) {
+                bigBlind = playerItr;
+            }
         }
-        for (int playerItr=bigBlind-1;underTheGun==0;playerItr--)
-        {
-                        if (playerItr==0)
-            {
-                playerItr=8;
+        for (int playerItr = bigBlind - 1; underTheGun == 0; playerItr--) {
+            if (playerItr == 0) {
+                playerItr = 8;
             }
-            if (player_ingame[playerItr])
-                underTheGun=playerItr;
+            if (player_ingame[playerItr]) {
+                underTheGun = playerItr;
+            }
         }
     }
+
     public void turn_indicator() {
         if (player_turn == 1) {
             point_p1_turn.setVisible(true);
@@ -384,6 +487,25 @@ public class MainController implements Initializable {
         point_p8_turn.setVisible(false);
         //card
         setCardVisible();
+        //money
+        bg_p1.setVisible(false);
+        money_p1.setVisible(false);
+        bg_p2.setVisible(false);
+        money_p2.setVisible(false);
+        bg_p3.setVisible(false);
+        money_p3.setVisible(false);
+        bg_p4.setVisible(false);
+        money_p4.setVisible(false);
+        bg_p5.setVisible(false);
+        money_p5.setVisible(false);
+        bg_p6.setVisible(false);
+        money_p6.setVisible(false);
+        bg_p7.setVisible(false);
+        money_p7.setVisible(false);
+        bg_p8.setVisible(false);
+        money_p8.setVisible(false);
+        pot.setVisible(false);
+        bg_pot.setVisible(false);
     }
 
     @FXML
@@ -555,15 +677,12 @@ public class MainController implements Initializable {
             player6_sit_btn.setVisible(false);
             player7_sit_btn.setVisible(false);
             player8_sit_btn.setVisible(false);
-            Deck d = new Deck();
-            Player[] p = new Player[9];
             for (int playerItr = 0; playerItr < 9; playerItr++) {
                 if (player_ingame[playerItr]) {
                     p[playerItr] = new Player(1000000); //give player credit
                 }
 
             }
-            Table t = new Table();
             for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
                 for (int playerItr = 0; playerItr < 9; playerItr++) {
                     if (player_ingame[playerItr]) {
@@ -575,14 +694,15 @@ public class MainController implements Initializable {
             d.discard();//discard top deck
             setCardVisible();
         }
-        
+
         role_assign();
-        player_turn=underTheGun;
+        player_turn = underTheGun;
         turn_indicator();
-        System.out.println("smallBlind = "+smallBlind);
-        System.out.println("bigBlind = "+bigBlind);
-        System.out.println("underTheGun = "+underTheGun);
+        System.out.println("smallBlind = " + smallBlind);
+        System.out.println("bigBlind = " + bigBlind);
+        System.out.println("underTheGun = " + underTheGun);
+        setMoneyVisible();
+        updateMoney();
     }
 
-    
 }

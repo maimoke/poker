@@ -21,7 +21,14 @@ public class Player {
     Player(int credit) {
         this.credit = credit;
     }
+    Player(){
+    }
 
+    public int getCredit() {
+        return credit;
+    }
+
+    
     public void draw(Card card) {
         cardOnHand.add(card);
     }

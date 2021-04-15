@@ -19,6 +19,10 @@ public class Table {
 
     }
 
+    public int getPot() {
+        return pot;
+    }
+
     //Methods
     public void draw(Card cardList) {//Draw card from deck to table
         card.add(cardList);

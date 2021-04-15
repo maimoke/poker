@@ -447,7 +447,7 @@
                   <Image url="@รวมไพ่/UI/point_player_turn.png" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="208.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p1" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="208.0" layoutY="144.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -465,7 +465,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="74.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p2" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="74.0" layoutY="351.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -483,7 +483,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="144.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p3" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="144.0" layoutY="534.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -501,7 +501,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="427.0" layoutY="630.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p4" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="427.0" layoutY="630.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -519,7 +519,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="681.0" layoutY="630.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p5" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="681.0" layoutY="630.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -537,7 +537,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="956.0" layoutY="567.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p6" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="956.0" layoutY="567.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -555,7 +555,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="1019.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p7" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="1019.0" layoutY="372.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -573,7 +573,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="901.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_p8" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="901.0" layoutY="159.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
@@ -631,7 +631,7 @@
                   <Font name="Agency FB Bold" size="24.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="565.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
+            <Rectangle fx:id="bg_pot" arcHeight="5.0" arcWidth="5.0" height="30.0" layoutX="565.0" layoutY="392.0" stroke="BLACK" strokeType="INSIDE" width="150.0">
                <fill>
                   <RadialGradient centerX="0.5111111450195311" centerY="0.5" radius="0.9112149621838721">
                      <stops>
