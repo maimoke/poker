@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 /**
  * FXML Controller class
  *
@@ -27,8 +26,10 @@ public class MainController implements Initializable {
     boolean[] player_ingame = new boolean[9]; //default false
     int player_turn = 0;
     boolean game_setup = false;
+    int playeringame=0;
     int bigBlind=0;
     int smallBlind=0;
+    int underTheGun=0;
     @FXML
     private AnchorPane stupid_pane;
     @FXML
@@ -145,6 +146,37 @@ public class MainController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    public void role_assign(){
+                int temp=(int)(Math.random()*69*playeringame);
+        for (int playerItr=1;temp>0;playerItr++)
+        {
+            if (playerItr==9)
+            {
+                playerItr=1;
+            }
+            if (player_ingame[playerItr])
+            smallBlind=playerItr;
+            temp--;
+        }
+        for (int playerItr=smallBlind-1;bigBlind==0;playerItr--)
+        {
+            if (playerItr==0)
+            {
+                playerItr=8;
+            }
+            if (player_ingame[playerItr])
+                bigBlind=playerItr;
+        }
+        for (int playerItr=bigBlind-1;underTheGun==0;playerItr--)
+        {
+                        if (playerItr==0)
+            {
+                playerItr=8;
+            }
+            if (player_ingame[playerItr])
+                underTheGun=playerItr;
+        }
+    }
     public void turn_indicator() {
         if (player_turn == 1) {
             point_p1_turn.setVisible(true);
@@ -487,7 +519,7 @@ public class MainController implements Initializable {
     //gamestart
     @FXML
     private void start(ActionEvent event) {
-        int playeringame = 0;
+        playeringame = 0;
         for (int i = 0; i < 9; i++) {
             if (player_ingame[i] == true) {
                 playeringame++;
@@ -522,15 +554,16 @@ public class MainController implements Initializable {
             }
 
             d.discard();//discard top deck
-            for (int i = 1; i < 9; i++) {
-                if (player_ingame[i] == true) {
-                    player_turn = i;
-                    break;
-                }
-            }
-            turn_indicator();
             setCardVisible();
         }
+        
+        role_assign();
+        player_turn=underTheGun;
+        turn_indicator();
+        System.out.println("smallBlind = "+smallBlind);
+        System.out.println("bigBlind = "+bigBlind);
+        System.out.println("underTheGun = "+underTheGun);
     }
 
+    
 }
