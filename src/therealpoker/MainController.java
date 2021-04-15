@@ -123,6 +123,22 @@ public class MainController implements Initializable {
     private ImageView card_p7_2;
     @FXML
     private ImageView card_p8_2;
+    @FXML
+    private ImageView point_p1_turn;
+    @FXML
+    private ImageView point_p2_turn;
+    @FXML
+    private ImageView point_p8_turn;
+    @FXML
+    private ImageView point_p3_turn;
+    @FXML
+    private ImageView point_p4_turn;
+    @FXML
+    private ImageView point_p7_turn;
+    @FXML
+    private ImageView point_p6_turn;
+    @FXML
+    private ImageView point_p5_turn;
 
     /**
      * Initializes the controller class.
