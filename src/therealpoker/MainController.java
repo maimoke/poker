@@ -26,6 +26,7 @@ public class MainController implements Initializable {
 
     boolean[] player_ingame = new boolean[9]; //default false
     int player_turn = 0;
+    boolean game_setup=false;
 
     @FXML
     private AnchorPane stupid_pane;
@@ -167,6 +168,7 @@ public class MainController implements Initializable {
         player6_sit_btn.setVisible(true);
         player7_sit_btn.setVisible(true);
         player8_sit_btn.setVisible(true);
+        game_setup=true;
     }
 
     @FXML
@@ -176,119 +178,152 @@ public class MainController implements Initializable {
 
     @FXML
     private void player1_sit(ActionEvent event) {
+        if (game_setup){
         player1_sit_btn.setVisible(false);
         player1.setVisible(true);
         player_ingame[1] = true;
+        }
     }
 
     @FXML
     private void player2_sit(ActionEvent event) {
+        if (game_setup){
         player2_sit_btn.setVisible(false);
         player2.setVisible(true);
         player_ingame[2] = true;
+        }
     }
 
     @FXML
     private void player3_sit(ActionEvent event) {
+        if (game_setup){
         player3_sit_btn.setVisible(false);
         player3.setVisible(true);
         player_ingame[3] = true;
+        }
     }
 
     @FXML
     private void player4_sit(ActionEvent event) {
+        if (game_setup){
         player4_sit_btn.setVisible(false);
         player4.setVisible(true);
         player_ingame[4] = true;
+        }
     }
 
     @FXML
     private void player5_sit(ActionEvent event) {
+        if (game_setup){
         player5_sit_btn.setVisible(false);
         player5.setVisible(true);
         player_ingame[5] = true;
+        }
     }
 
     @FXML
     private void player6_sit(ActionEvent event) {
+        if (game_setup){
         player6_sit_btn.setVisible(false);
         player6.setVisible(true);
         player_ingame[6] = true;
+        }
     }
 
     @FXML
     private void player7_sit(ActionEvent event) {
+        if (game_setup){
         player7_sit_btn.setVisible(false);
         player7.setVisible(true);
         player_ingame[7] = true;
+        }
     }
 
     @FXML
     private void player8_sit(ActionEvent event) {
+        if (game_setup){
         player8_sit_btn.setVisible(false);
         player8.setVisible(true);
         player_ingame[8] = true;
+        }
     }
 
     @FXML
     private void player1_remove(MouseEvent event) {
+        if (game_setup){
         player1.setVisible(false);
         player1_sit_btn.setVisible(true);
         player_ingame[1] = false;
+        }
     }
 
     @FXML
     private void player2_remove(MouseEvent event) {
+        if (game_setup){
         player2.setVisible(false);
         player2_sit_btn.setVisible(true);
         player_ingame[2] = false;
+        }
     }
 
     @FXML
     private void player3_remove(MouseEvent event) {
+        if (game_setup){
         player3.setVisible(false);
         player3_sit_btn.setVisible(true);
         player_ingame[3] = false;
+        }
     }
 
     @FXML
     private void player4_remove(MouseEvent event) {
+        if (game_setup){
         player4.setVisible(false);
         player4_sit_btn.setVisible(true);
         player_ingame[4] = false;
+        }
     }
 
     @FXML
     private void player5_remove(MouseEvent event) {
+        if (game_setup){
         player5.setVisible(false);
         player5_sit_btn.setVisible(true);
         player_ingame[5] = false;
+        }
     }
 
     @FXML
     private void player6_remove(MouseEvent event) {
+        if (game_setup){
         player6.setVisible(false);
         player6_sit_btn.setVisible(true);
         player_ingame[6] = false;
+        }
     }
 
     @FXML
     private void player7_remove(MouseEvent event) {
+        if (game_setup){
         player7.setVisible(false);
         player7_sit_btn.setVisible(true);
         player_ingame[7] = false;
+        }
     }
 
     @FXML
     private void player8_remove(MouseEvent event) {
+        if (game_setup){
         player8.setVisible(false);
         player8_sit_btn.setVisible(true);
         player_ingame[8] = false;
+        }
     }
 
     //gamestart
     @FXML
     private void start(ActionEvent event) {
+        game_setup=false;
         start_btn.setVisible(false);
         player1_sit_btn.setVisible(false);
         player2_sit_btn.setVisible(false);
