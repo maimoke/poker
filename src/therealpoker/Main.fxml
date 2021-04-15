@@ -306,6 +306,25 @@
                   <Image url="@รวมไพ่/Spade/TenOfSpade.png" />
                </image>
             </ImageView>
+            <Button fx:id="start_btn" layoutX="590.0" layoutY="201.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Start">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+               <effect>
+                  <Lighting diffuseConstant="1.67">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.5115432143211365" green="1.0" blue="0.28518518805503845" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
          </children>
       </AnchorPane>
    </children>
