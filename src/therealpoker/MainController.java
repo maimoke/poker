@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -139,6 +140,24 @@ public class MainController implements Initializable {
     private ImageView point_p6_turn;
     @FXML
     private ImageView point_p5_turn;
+    @FXML
+    private Label money_p1;
+    @FXML
+    private Label money_p2;
+    @FXML
+    private Label money_p3;
+    @FXML
+    private Label money_p4;
+    @FXML
+    private Label money_p5;
+    @FXML
+    private Label money_p6;
+    @FXML
+    private Label money_p7;
+    @FXML
+    private Label money_p8;
+    @FXML
+    private Label pot;
 
     /**
      * Initializes the controller class.
