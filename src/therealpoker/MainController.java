@@ -17,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 /**
  * FXML Controller class
  *
@@ -27,7 +26,11 @@ public class MainController implements Initializable {
 
     boolean[] player_ingame = new boolean[9]; //default false
     int player_turn = 0;
-
+    boolean game_setup = false;
+    int playeringame=0;
+    int bigBlind=0;
+    int smallBlind=0;
+    int underTheGun=0;
     @FXML
     private AnchorPane stupid_pane;
     @FXML
@@ -162,12 +165,179 @@ public class MainController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    public void role_assign(){
+                int temp=(int)(Math.random()*69*playeringame);
+        for (int playerItr=1;temp>0;playerItr++)
+        {
+            if (playerItr==9)
+            {
+                playerItr=1;
+            }
+            if (player_ingame[playerItr])
+            smallBlind=playerItr;
+            temp--;
+        }
+        for (int playerItr=smallBlind-1;bigBlind==0;playerItr--)
+        {
+            if (playerItr==0)
+            {
+                playerItr=8;
+            }
+            if (player_ingame[playerItr])
+                bigBlind=playerItr;
+        }
+        for (int playerItr=bigBlind-1;underTheGun==0;playerItr--)
+        {
+                        if (playerItr==0)
+            {
+                playerItr=8;
+            }
+            if (player_ingame[playerItr])
+                underTheGun=playerItr;
+        }
+    }
+    public void turn_indicator() {
+        if (player_turn == 1) {
+            point_p1_turn.setVisible(true);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 2) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(true);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 3) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(true);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 4) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(true);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 5) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(true);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 6) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(true);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 7) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(true);
+            point_p8_turn.setVisible(false);
+        } else if (player_turn == 8) {
+            point_p1_turn.setVisible(false);
+            point_p2_turn.setVisible(false);
+            point_p3_turn.setVisible(false);
+            point_p4_turn.setVisible(false);
+            point_p5_turn.setVisible(false);
+            point_p6_turn.setVisible(false);
+            point_p7_turn.setVisible(false);
+            point_p8_turn.setVisible(true);
+        }
+    }
+
+    public void setCardVisible() {
+        if (player_ingame[1]) {
+            card_p1_1.setVisible(true);
+            card_p1_2.setVisible(true);
+        } else {
+            card_p1_1.setVisible(false);
+            card_p1_2.setVisible(false);
+        }
+        if (player_ingame[2]) {
+            card_p2_1.setVisible(true);
+            card_p2_2.setVisible(true);
+        } else {
+            card_p2_1.setVisible(false);
+            card_p2_2.setVisible(false);
+        }
+        if (player_ingame[3]) {
+            card_p3_1.setVisible(true);
+            card_p3_2.setVisible(true);
+        } else {
+            card_p3_1.setVisible(false);
+            card_p3_2.setVisible(false);
+        }
+        if (player_ingame[4]) {
+            card_p4_1.setVisible(true);
+            card_p4_2.setVisible(true);
+        } else {
+            card_p4_1.setVisible(false);
+            card_p4_2.setVisible(false);
+        }
+        if (player_ingame[5]) {
+            card_p5_1.setVisible(true);
+            card_p5_2.setVisible(true);
+        } else {
+            card_p5_1.setVisible(false);
+            card_p5_2.setVisible(false);
+        }
+        if (player_ingame[6]) {
+            card_p6_1.setVisible(true);
+            card_p6_2.setVisible(true);
+        } else {
+            card_p6_1.setVisible(false);
+            card_p6_2.setVisible(false);
+        }
+        if (player_ingame[7]) {
+            card_p7_1.setVisible(true);
+            card_p7_2.setVisible(true);
+        } else {
+            card_p7_1.setVisible(false);
+            card_p7_2.setVisible(false);
+        }
+        if (player_ingame[8]) {
+            card_p8_1.setVisible(true);
+            card_p8_2.setVisible(true);
+        } else {
+            card_p8_1.setVisible(false);
+            card_p8_2.setVisible(false);
+        }
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         MainMenu.setVisible(true);
         Game.setVisible(false);
-        stupid_pane.setCursor(Cursor.CROSSHAIR);
+        stupid_pane.setCursor(Cursor.DEFAULT);
     }
 
     @FXML
@@ -202,6 +372,18 @@ public class MainController implements Initializable {
         player6_sit_btn.setVisible(true);
         player7_sit_btn.setVisible(true);
         player8_sit_btn.setVisible(true);
+        game_setup = true;
+        //point
+        point_p1_turn.setVisible(false);
+        point_p2_turn.setVisible(false);
+        point_p3_turn.setVisible(false);
+        point_p4_turn.setVisible(false);
+        point_p5_turn.setVisible(false);
+        point_p6_turn.setVisible(false);
+        point_p7_turn.setVisible(false);
+        point_p8_turn.setVisible(false);
+        //card
+        setCardVisible();
     }
 
     @FXML
@@ -211,154 +393,196 @@ public class MainController implements Initializable {
 
     @FXML
     private void player1_sit(ActionEvent event) {
-        player1_sit_btn.setVisible(false);
-        player1.setVisible(true);
-        player_ingame[1] = true;
+        if (game_setup) {
+            player1_sit_btn.setVisible(false);
+            player1.setVisible(true);
+            player_ingame[1] = true;
+        }
     }
 
     @FXML
     private void player2_sit(ActionEvent event) {
-        player2_sit_btn.setVisible(false);
-        player2.setVisible(true);
-        player_ingame[2] = true;
+        if (game_setup) {
+            player2_sit_btn.setVisible(false);
+            player2.setVisible(true);
+            player_ingame[2] = true;
+        }
     }
 
     @FXML
     private void player3_sit(ActionEvent event) {
-        player3_sit_btn.setVisible(false);
-        player3.setVisible(true);
-        player_ingame[3] = true;
+        if (game_setup) {
+            player3_sit_btn.setVisible(false);
+            player3.setVisible(true);
+            player_ingame[3] = true;
+        }
     }
 
     @FXML
     private void player4_sit(ActionEvent event) {
-        player4_sit_btn.setVisible(false);
-        player4.setVisible(true);
-        player_ingame[4] = true;
+        if (game_setup) {
+            player4_sit_btn.setVisible(false);
+            player4.setVisible(true);
+            player_ingame[4] = true;
+        }
     }
 
     @FXML
     private void player5_sit(ActionEvent event) {
-        player5_sit_btn.setVisible(false);
-        player5.setVisible(true);
-        player_ingame[5] = true;
+        if (game_setup) {
+            player5_sit_btn.setVisible(false);
+            player5.setVisible(true);
+            player_ingame[5] = true;
+        }
     }
 
     @FXML
     private void player6_sit(ActionEvent event) {
-        player6_sit_btn.setVisible(false);
-        player6.setVisible(true);
-        player_ingame[6] = true;
+        if (game_setup) {
+            player6_sit_btn.setVisible(false);
+            player6.setVisible(true);
+            player_ingame[6] = true;
+        }
     }
 
     @FXML
     private void player7_sit(ActionEvent event) {
-        player7_sit_btn.setVisible(false);
-        player7.setVisible(true);
-        player_ingame[7] = true;
+        if (game_setup) {
+            player7_sit_btn.setVisible(false);
+            player7.setVisible(true);
+            player_ingame[7] = true;
+        }
     }
 
     @FXML
     private void player8_sit(ActionEvent event) {
-        player8_sit_btn.setVisible(false);
-        player8.setVisible(true);
-        player_ingame[8] = true;
+        if (game_setup) {
+            player8_sit_btn.setVisible(false);
+            player8.setVisible(true);
+            player_ingame[8] = true;
+        }
     }
 
     @FXML
     private void player1_remove(MouseEvent event) {
-        player1.setVisible(false);
-        player1_sit_btn.setVisible(true);
-        player_ingame[1] = false;
+        if (game_setup) {
+            player1.setVisible(false);
+            player1_sit_btn.setVisible(true);
+            player_ingame[1] = false;
+        }
     }
 
     @FXML
     private void player2_remove(MouseEvent event) {
-        player2.setVisible(false);
-        player2_sit_btn.setVisible(true);
-        player_ingame[2] = false;
+        if (game_setup) {
+            player2.setVisible(false);
+            player2_sit_btn.setVisible(true);
+            player_ingame[2] = false;
+        }
     }
 
     @FXML
     private void player3_remove(MouseEvent event) {
-        player3.setVisible(false);
-        player3_sit_btn.setVisible(true);
-        player_ingame[3] = false;
+        if (game_setup) {
+            player3.setVisible(false);
+            player3_sit_btn.setVisible(true);
+            player_ingame[3] = false;
+        }
     }
 
     @FXML
     private void player4_remove(MouseEvent event) {
-        player4.setVisible(false);
-        player4_sit_btn.setVisible(true);
-        player_ingame[4] = false;
+        if (game_setup) {
+            player4.setVisible(false);
+            player4_sit_btn.setVisible(true);
+            player_ingame[4] = false;
+        }
     }
 
     @FXML
     private void player5_remove(MouseEvent event) {
-        player5.setVisible(false);
-        player5_sit_btn.setVisible(true);
-        player_ingame[5] = false;
+        if (game_setup) {
+            player5.setVisible(false);
+            player5_sit_btn.setVisible(true);
+            player_ingame[5] = false;
+        }
     }
 
     @FXML
     private void player6_remove(MouseEvent event) {
-        player6.setVisible(false);
-        player6_sit_btn.setVisible(true);
-        player_ingame[6] = false;
+        if (game_setup) {
+            player6.setVisible(false);
+            player6_sit_btn.setVisible(true);
+            player_ingame[6] = false;
+        }
     }
 
     @FXML
     private void player7_remove(MouseEvent event) {
-        player7.setVisible(false);
-        player7_sit_btn.setVisible(true);
-        player_ingame[7] = false;
+        if (game_setup) {
+            player7.setVisible(false);
+            player7_sit_btn.setVisible(true);
+            player_ingame[7] = false;
+        }
     }
 
     @FXML
     private void player8_remove(MouseEvent event) {
-        player8.setVisible(false);
-        player8_sit_btn.setVisible(true);
-        player_ingame[8] = false;
+        if (game_setup) {
+            player8.setVisible(false);
+            player8_sit_btn.setVisible(true);
+            player_ingame[8] = false;
+        }
     }
 
     //gamestart
     @FXML
     private void start(ActionEvent event) {
-        start_btn.setVisible(false);
-        player1_sit_btn.setVisible(false);
-        player2_sit_btn.setVisible(false);
-        player3_sit_btn.setVisible(false);
-        player4_sit_btn.setVisible(false);
-        player5_sit_btn.setVisible(false);
-        player6_sit_btn.setVisible(false);
-        player7_sit_btn.setVisible(false);
-        player8_sit_btn.setVisible(false);
-        Deck d = new Deck();
-        Player[] p = new Player[9];
-        for (int playerItr = 0; playerItr < 9; playerItr++) {
-            if (player_ingame[playerItr]) {
-                p[playerItr] = new Player(1000000); //give player credit
+        playeringame = 0;
+        for (int i = 0; i < 9; i++) {
+            if (player_ingame[i] == true) {
+                playeringame++;
             }
-
         }
-        Table t = new Table();
-        for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
+        if (playeringame > 1) {
+            game_setup = false;
+            start_btn.setVisible(false);
+            player1_sit_btn.setVisible(false);
+            player2_sit_btn.setVisible(false);
+            player3_sit_btn.setVisible(false);
+            player4_sit_btn.setVisible(false);
+            player5_sit_btn.setVisible(false);
+            player6_sit_btn.setVisible(false);
+            player7_sit_btn.setVisible(false);
+            player8_sit_btn.setVisible(false);
+            Deck d = new Deck();
+            Player[] p = new Player[9];
             for (int playerItr = 0; playerItr < 9; playerItr++) {
                 if (player_ingame[playerItr]) {
-                    p[playerItr].draw(d.draw()); //draw 2 per player
+                    p[playerItr] = new Player(1000000); //give player credit
+                }
+
+            }
+            Table t = new Table();
+            for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
+                for (int playerItr = 0; playerItr < 9; playerItr++) {
+                    if (player_ingame[playerItr]) {
+                        p[playerItr].draw(d.draw()); //draw 2 per player
+                    }
                 }
             }
-        }
 
-        d.discard();//discard top deck
-        for (int i=1;i<9;i++)
-        {
-            if (player_ingame[i]==true)
-            {
-                player_turn=i;
-                break;
-            }
+            d.discard();//discard top deck
+            setCardVisible();
         }
+        
+        role_assign();
+        player_turn=underTheGun;
+        turn_indicator();
+        System.out.println("smallBlind = "+smallBlind);
+        System.out.println("bigBlind = "+bigBlind);
+        System.out.println("underTheGun = "+underTheGun);
     }
 
+    
 }
