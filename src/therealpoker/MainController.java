@@ -81,6 +81,48 @@ public class MainController implements Initializable {
     private Button player8_sit_btn;
     @FXML
     private Button start_btn;
+    @FXML
+    private ImageView card_table_1;
+    @FXML
+    private ImageView card_table_2;
+    @FXML
+    private ImageView card_table_3;
+    @FXML
+    private ImageView card_table_4;
+    @FXML
+    private ImageView card_table_5;
+    @FXML
+    private ImageView card_p1_2;
+    @FXML
+    private ImageView card_p1_1;
+    @FXML
+    private ImageView card_p2_2;
+    @FXML
+    private ImageView card_p2_1;
+    @FXML
+    private ImageView card_p3_2;
+    @FXML
+    private ImageView card_p3_1;
+    @FXML
+    private ImageView card_p4_2;
+    @FXML
+    private ImageView card_p4_1;
+    @FXML
+    private ImageView card_p5_1;
+    @FXML
+    private ImageView card_p5_2;
+    @FXML
+    private ImageView card_p6_1;
+    @FXML
+    private ImageView card_p6_2;
+    @FXML
+    private ImageView card_p8_1;
+    @FXML
+    private ImageView card_p7_1;
+    @FXML
+    private ImageView card_p7_2;
+    @FXML
+    private ImageView card_p8_2;
 
     /**
      * Initializes the controller class.

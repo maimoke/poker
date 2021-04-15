@@ -281,27 +281,27 @@
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="400.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_1" fitHeight="124.0" fitWidth="100.0" layoutX="400.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Spade/AceOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="500.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_2" fitHeight="124.0" fitWidth="100.0" layoutX="500.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Spade/KingOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="600.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_3" fitHeight="124.0" fitWidth="100.0" layoutX="600.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Spade/QueenOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="700.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_4" fitHeight="124.0" fitWidth="100.0" layoutX="700.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Spade/JackOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="124.0" fitWidth="100.0" layoutX="800.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_5" fitHeight="124.0" fitWidth="100.0" layoutX="800.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@รวมไพ่/Spade/TenOfSpade.png" />
                </image>
@@ -325,6 +325,86 @@
                   </Lighting>
                </effect>
             </Button>
+            <ImageView fx:id="card_p1_2" fitHeight="124.0" fitWidth="60.0" layoutX="142.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p1_1" fitHeight="124.0" fitWidth="60.0" layoutX="73.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p2_2" fitHeight="124.0" fitWidth="60.0" layoutX="67.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p2_1" fitHeight="124.0" fitWidth="60.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p3_2" fitHeight="124.0" fitWidth="60.0" layoutX="133.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p3_1" fitHeight="124.0" fitWidth="60.0" layoutX="67.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p4_2" fitHeight="124.0" fitWidth="60.0" layoutX="370.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p4_1" fitHeight="124.0" fitWidth="60.0" layoutX="304.0" layoutY="623.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p5_1" fitHeight="124.0" fitWidth="60.0" layoutX="859.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p5_2" fitHeight="124.0" fitWidth="60.0" layoutX="924.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p6_1" fitHeight="124.0" fitWidth="60.0" layoutX="1114.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p6_2" fitHeight="124.0" fitWidth="60.0" layoutX="1178.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p8_1" fitHeight="124.0" fitWidth="60.0" layoutX="1054.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p7_1" fitHeight="124.0" fitWidth="60.0" layoutX="1148.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p7_2" fitHeight="124.0" fitWidth="60.0" layoutX="1215.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card_p8_2" fitHeight="124.0" fitWidth="60.0" layoutX="1118.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
