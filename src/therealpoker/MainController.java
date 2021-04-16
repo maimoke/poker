@@ -722,7 +722,7 @@ public class MainController implements Initializable {
     //gamestart
     @FXML
     private void start(ActionEvent event) {
-        Image table1 = new Image(getClass().getResourceAsStream("UI/poker_icon.png"));
+        Image table1 = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TwoOfSpade.png"));
         card_table_1.setImage(table1);
         playeringame = 0;
         for (int i = 0; i < 9; i++) {
