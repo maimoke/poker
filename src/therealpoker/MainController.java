@@ -188,55 +188,57 @@ public class MainController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param view
+     * @param c
      */
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
         int num = c.getVolume();
-        Image image = new Image("");
+        Image imaged = new Image("");
         if (type == 1) {
             switch (num) {
                 case 2:
-                    image = new Image("Club/TwooOfClub.png");
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TwoOfSpade.png"));
                     break;
-                case 3:
-                    image = new Image("");
-                    break;
-                case 4:
-                    image = new Image("");
-                    break;
-                case 5:
-                    image = new Image("");
-                    break;
-                case 6:
-                    image = new Image("");
-                    break;
-                case 7:
-                    image = new Image("");
-                    break;
-                case 8:
-                    image = new Image("");
-                    break;
-                case 9:
-                    image = new Image("");
-                    break;
-                case 10:
-                    image = new Image("");
-                    break;
-                case 11:
-                    image = new Image("");
-                    break;
-                case 12:
-                    image = new Image("");
-                    break;
-                case 13:
-                    image = new Image("");
-                    break;
-                case 14:
-                    image = new Image("");
-                    break;
+//                case 3:
+//                    imaged = new Image("");
+//                    break;
+//                case 4:
+//                    imaged = new Image("");
+//                    break;
+//                case 5:
+//                    imaged = new Image("");
+//                    break;
+//                case 6:
+//                    imaged = new Image("");
+//                    break;
+//                case 7:
+//                    imaged = new Image("");
+//                    break;
+//                case 8:
+//                    imaged = new Image("");
+//                    break;
+//                case 9:
+//                    imaged = new Image("");
+//                    break;
+//                case 10:
+//                    imaged = new Image("");
+//                    break;
+//                case 11:
+//                    imaged = new Image("");
+//                    break;
+//                case 12:
+//                    imaged = new Image("");
+//                    break;
+//                case 13:
+//                    imaged = new Image("");
+//                    break;
+//                case 14:
+//                    imaged = new Image("");
+//                    break;
             }
 
-            view.setImage(image);
+            view.setImage(imaged);
         }
 
     }
@@ -721,9 +723,12 @@ public class MainController implements Initializable {
 
     //gamestart
     @FXML
-    private void start(ActionEvent event) {
-        Image table1 = new Image(getClass().getResourceAsStream("UI/poker_icon.png"));
-        card_table_1.setImage(table1);
+    private void start(ActionEvent event) {    
+        
+        Card testCardzz = new Card(2,1);        
+       showCard(card_table_1, testCardzz);
+         
+         
         playeringame = 0;
         for (int i = 0; i < 9; i++) {
             if (player_ingame[i] == true) {
@@ -767,10 +772,9 @@ public class MainController implements Initializable {
         System.out.println("underTheGun = " + underTheGun);
         setMoneyVisible();
         updateMoney();
-        Card testCard = new Card(2,1);
         
         
-       // showCard(card_table_1,testCard); 
+        
         
 
         
