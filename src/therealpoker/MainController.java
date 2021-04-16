@@ -191,7 +191,7 @@ public class MainController implements Initializable {
         int num = c.getVolume();
         System.out.println(type + "  " + num);
         Image imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FourOfSpade.png"));
-        if (type == 1) {
+        if (type == 4) {
             if (num == 2) {
                 imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TwoOfSpade.png"));
             } else if (num == 3) {
@@ -220,7 +220,94 @@ public class MainController implements Initializable {
                 imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/AceOfSpade.png"));
             }
         }
+        else if (type == 3) {
+            if (num == 2) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/TwoOfHeart.png"));
+            } else if (num == 3) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/ThreeOfHeart.png"));
+            } else if (num == 4) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/FourOfHeart.png"));
+            } else if (num == 5) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/FiveOfHeart.png"));
+            } else if (num == 6) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/SixOfHeart.png"));
+            } else if (num == 7) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/SevenOfHeart.png"));
+            } else if (num == 8) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/EightOfHeart.png"));
+            } else if (num == 9) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/NineOfHeart.png"));
+            } else if (num == 10) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/TenOfHeart.png"));
+            } else if (num == 11) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/JackOfHeart.png"));
+            } else if (num == 12) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/QueenOfHeart.png"));
+            } else if (num == 13) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/KingOfHeart.png"));
+            } else if (num == 14) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Heart/AceOfHeart.png"));
+            }
+        }
+        else if (type == 2) {
+            if (num == 2) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/TwoOfDiamond.png"));
+            } else if (num == 3) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/ThreeOfDiamond.png"));
+            } else if (num == 4) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/FourOfDiamond.png"));
+            } else if (num == 5) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/FiveOfDiamond.png"));
+            } else if (num == 6) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/SixOfDiamond.png"));
+            } else if (num == 7) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/SevenOfDiamond.png"));
+            } else if (num == 8) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/EightOfDiamond.png"));
+            } else if (num == 9) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/NineOfDiamond.png"));
+            } else if (num == 10) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/TenOfDiamond.png"));
+            } else if (num == 11) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/JackOfDiamond.png"));
+            } else if (num == 12) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/QueenOfDiamond.png"));
+            } else if (num == 13) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/KingOfDiamond.png"));
+            } else if (num == 14) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Diamond/AceOfDiamond.png"));
+            }
+        }
 
+        else if (type == 1) {
+            if (num == 2) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/TwoOfClub.png"));
+            } else if (num == 3) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/ThreeOfClub.png"));
+            } else if (num == 4) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/FourOfClub.png"));
+            } else if (num == 5) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/FiveOfClub.png"));
+            } else if (num == 6) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/SixOfClub.png"));
+            } else if (num == 7) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/SevenOfClub.png"));
+            } else if (num == 8) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/EightOfClub.png"));
+            } else if (num == 9) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/NineOfClub.png"));
+            } else if (num == 10) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/TenOfClub.png"));
+            } else if (num == 11) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/JackOfClub.png"));
+            } else if (num == 12) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/QueenOfClub.png"));
+            } else if (num == 13) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/KingOfClub.png"));
+            } else if (num == 14) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Club/AceOfClub.png"));
+            }
+        }
         view.setImage(imaged);
 
     }
