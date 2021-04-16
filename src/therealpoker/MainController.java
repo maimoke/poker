@@ -185,6 +185,8 @@ public class MainController implements Initializable {
     private Rectangle bg_p8;
     @FXML
     private Rectangle bg_pot;
+    
+    
 
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
@@ -839,6 +841,70 @@ public class MainController implements Initializable {
         setMoneyVisible();
         updateMoney();
 
+    }
+
+    @FXML
+    private void view_card_p1_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p1_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p2_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p2_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p3_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p3_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p4_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p4_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p5_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p5_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p6_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p6_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p8_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p7_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p7_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void view_card_p8_2(MouseEvent event) {
     }
 
 }
