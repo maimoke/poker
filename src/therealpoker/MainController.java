@@ -14,6 +14,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -188,25 +189,86 @@ public class MainController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    public void updateMoney(){
-        if (player_ingame[1])
-        money_p1.setText(String.valueOf(p[1].getCredit()));
-        if (player_ingame[2])
-        money_p2.setText(String.valueOf(p[2].getCredit()));
-        if (player_ingame[3])
-        money_p3.setText(String.valueOf(p[3].getCredit()));
-        if (player_ingame[4])
-        money_p4.setText(String.valueOf(p[4].getCredit()));
-        if (player_ingame[5])
-        money_p5.setText(String.valueOf(p[5].getCredit()));
-        if (player_ingame[6])
-        money_p6.setText(String.valueOf(p[6].getCredit()));
-        if (player_ingame[7])
-        money_p7.setText(String.valueOf(p[7].getCredit()));
-        if (player_ingame[8])
-        money_p8.setText(String.valueOf(p[8].getCredit()));
+    public void showCard(ImageView view, Card c) {
+        int type = c.getSuit();
+        int num = c.getVolume();
+        Image image = new Image("");
+        if (type == 1) {
+            switch (num) {
+                case 2:
+                    image = new Image("Club/TwooOfClub.png");
+                    break;
+                case 3:
+                    image = new Image("");
+                    break;
+                case 4:
+                    image = new Image("");
+                    break;
+                case 5:
+                    image = new Image("");
+                    break;
+                case 6:
+                    image = new Image("");
+                    break;
+                case 7:
+                    image = new Image("");
+                    break;
+                case 8:
+                    image = new Image("");
+                    break;
+                case 9:
+                    image = new Image("");
+                    break;
+                case 10:
+                    image = new Image("");
+                    break;
+                case 11:
+                    image = new Image("");
+                    break;
+                case 12:
+                    image = new Image("");
+                    break;
+                case 13:
+                    image = new Image("");
+                    break;
+                case 14:
+                    image = new Image("");
+                    break;
+            }
+
+            view.setImage(image);
+        }
+
+    }
+
+    public void updateMoney() {
+        if (player_ingame[1]) {
+            money_p1.setText(String.valueOf(p[1].getCredit()));
+        }
+        if (player_ingame[2]) {
+            money_p2.setText(String.valueOf(p[2].getCredit()));
+        }
+        if (player_ingame[3]) {
+            money_p3.setText(String.valueOf(p[3].getCredit()));
+        }
+        if (player_ingame[4]) {
+            money_p4.setText(String.valueOf(p[4].getCredit()));
+        }
+        if (player_ingame[5]) {
+            money_p5.setText(String.valueOf(p[5].getCredit()));
+        }
+        if (player_ingame[6]) {
+            money_p6.setText(String.valueOf(p[6].getCredit()));
+        }
+        if (player_ingame[7]) {
+            money_p7.setText(String.valueOf(p[7].getCredit()));
+        }
+        if (player_ingame[8]) {
+            money_p8.setText(String.valueOf(p[8].getCredit()));
+        }
         pot.setText(String.valueOf(t.getPot()));
     }
+
     public void setMoneyVisible() {
         if (player_ingame[1]) {
             money_p1.setVisible(true);
@@ -266,8 +328,8 @@ public class MainController implements Initializable {
         }
 
     }
-    public void update()
-    {
+
+    public void update() {        
     }
 
     public void role_assign() {
@@ -660,6 +722,8 @@ public class MainController implements Initializable {
     //gamestart
     @FXML
     private void start(ActionEvent event) {
+        Image table1 = new Image(getClass().getResourceAsStream("UI/poker_icon.png"));
+        card_table_1.setImage(table1);
         playeringame = 0;
         for (int i = 0; i < 9; i++) {
             if (player_ingame[i] == true) {
@@ -703,6 +767,18 @@ public class MainController implements Initializable {
         System.out.println("underTheGun = " + underTheGun);
         setMoneyVisible();
         updateMoney();
+        Card testCard = new Card(2,1);
+        
+        
+       // showCard(card_table_1,testCard); 
+        
+
+        
+        
     }
 
+      
+   
+    
+    
 }
