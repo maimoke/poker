@@ -186,58 +186,42 @@ public class MainController implements Initializable {
     @FXML
     private Rectangle bg_pot;
 
-    /**
-     * Initializes the controller class.
-     */
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
         int num = c.getVolume();
-        Image image = new Image("");
+        System.out.println(type + "  " + num);
+        Image imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FourOfSpade.png"));
         if (type == 1) {
-            switch (num) {
-                case 2:
-                    image = new Image("Club/TwooOfClub.png");
-                    break;
-                case 3:
-                    image = new Image("");
-                    break;
-                case 4:
-                    image = new Image("");
-                    break;
-                case 5:
-                    image = new Image("");
-                    break;
-                case 6:
-                    image = new Image("");
-                    break;
-                case 7:
-                    image = new Image("");
-                    break;
-                case 8:
-                    image = new Image("");
-                    break;
-                case 9:
-                    image = new Image("");
-                    break;
-                case 10:
-                    image = new Image("");
-                    break;
-                case 11:
-                    image = new Image("");
-                    break;
-                case 12:
-                    image = new Image("");
-                    break;
-                case 13:
-                    image = new Image("");
-                    break;
-                case 14:
-                    image = new Image("");
-                    break;
+            if (num == 2) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TwoOfSpade.png"));
+            } else if (num == 3) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/ThreeOfSpade.png"));
+            } else if (num == 4) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FourOfSpade.png"));
+            } else if (num == 5) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FiveOfSpade.png"));
+            } else if (num == 6) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/SixOfSpade.png"));
+            } else if (num == 7) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/SevenOfSpade.png"));
+            } else if (num == 8) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/EightOfSpade.png"));
+            } else if (num == 9) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/NineOfSpade.png"));
+            } else if (num == 10) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TenOfSpade.png"));
+            } else if (num == 11) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/JackOfSpade.png"));
+            } else if (num == 12) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/QueenOfSpade.png"));
+            } else if (num == 13) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/KingOfSpade.png"));
+            } else if (num == 14) {
+                imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/AceOfSpade.png"));
             }
-
-            view.setImage(image);
         }
+
+        view.setImage(imaged);
 
     }
 
@@ -329,7 +313,7 @@ public class MainController implements Initializable {
 
     }
 
-    public void update() {        
+    public void update() {
     }
 
     public void role_assign() {
@@ -722,8 +706,8 @@ public class MainController implements Initializable {
     //gamestart
     @FXML
     private void start(ActionEvent event) {
-        Image table1 = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/TwoOfSpade.png"));
-        card_table_1.setImage(table1);
+        Card testCardzz = new Card(2, 1);
+        showCard(card_table_1, testCardzz);
         playeringame = 0;
         for (int i = 0; i < 9; i++) {
             if (player_ingame[i] == true) {
@@ -767,18 +751,7 @@ public class MainController implements Initializable {
         System.out.println("underTheGun = " + underTheGun);
         setMoneyVisible();
         updateMoney();
-        Card testCard = new Card(2,1);
-        
-        
-       // showCard(card_table_1,testCard); 
-        
 
-        
-        
     }
 
-      
-   
-    
-    
 }
