@@ -430,21 +430,7 @@ public class MainController implements Initializable {
                 t.bet(p[smallBlind].call(5000));
                 updateMoney();
                 //ui reset
-                showCard(card_p1_1,back);
-                showCard(card_p1_2,back);
-                showCard(card_p2_2,back);
-                showCard(card_p3_1,back);
-                showCard(card_p3_2,back);
-                showCard(card_p4_1,back);
-                showCard(card_p4_2,back);
-                showCard(card_p5_1,back);
-                showCard(card_p5_2,back);
-                showCard(card_p6_1,back);
-                showCard(card_p6_2,back);
-                showCard(card_p7_1,back);
-                showCard(card_p7_2,back);
-                showCard(card_p8_1,back);
-                showCard(card_p8_2,back);
+                showBack();
                 card_table_1.setVisible(false);
                 card_table_2.setVisible(false);
                 card_table_3.setVisible(false);
@@ -470,6 +456,7 @@ public class MainController implements Initializable {
             }
     }
         
+    
     }
     public int findNextPlayer(){
         for (int i=player_turn-1;i>=0;i--)
@@ -484,6 +471,25 @@ public class MainController implements Initializable {
                 }
         }
         return 0;
+    }
+    
+    
+    public void showBack(){
+                showCard(card_p1_1,back);
+                showCard(card_p1_2,back);
+                showCard(card_p2_2,back);
+                showCard(card_p3_1,back);
+                showCard(card_p3_2,back);
+                showCard(card_p4_1,back);
+                showCard(card_p4_2,back);
+                showCard(card_p5_1,back);
+                showCard(card_p5_2,back);
+                showCard(card_p6_1,back);
+                showCard(card_p6_2,back);
+                showCard(card_p7_1,back);
+                showCard(card_p7_2,back);
+                showCard(card_p8_1,back);
+                showCard(card_p8_2,back);
     }
     
     public void updateMoney() {
@@ -1245,6 +1251,7 @@ public class MainController implements Initializable {
             case 8:player8.setOpacity(0.5); break;
         }
         player_turn=findNextPlayer();
+        showBack();
         checkRound();
         turn_indicator();
         updateMoney();
@@ -1254,6 +1261,7 @@ public class MainController implements Initializable {
     private void call(ActionEvent event) {
         t.bet(p[player_turn].call(raiseThisRound-p[player_turn].getBetThisRound()));
         player_turn=findNextPlayer();
+        showBack();
         checkRound();
         turn_indicator();
         updateMoney();
@@ -1271,6 +1279,7 @@ public class MainController implements Initializable {
         System.out.println(t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText()))));
         raiseThisRound+=t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
         player_turn=findNextPlayer();
+        showBack();
         fill_raise.setText("");
         checkRound();
         turn_indicator();
