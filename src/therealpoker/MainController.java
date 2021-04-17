@@ -1074,7 +1074,6 @@ public class MainController implements Initializable {
         updateMoney();
     }
 
-    @FXML
     private void view_card_p1_2(MouseEvent event) {
         if (player_turn == 1) {
             if (showCardP1_2 == false) {
@@ -1100,7 +1099,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p2_2(MouseEvent event) {
         if (player_turn == 2) {
             if (showCardP2_2 == false) {
@@ -1113,7 +1111,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p2_1(MouseEvent event) {
         if (player_turn == 2) {
             if (showCardP2_1 == false) {
@@ -1126,7 +1123,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p3_2(MouseEvent event) {
         if (player_turn == 3) {
             if (showCardP3_2 == false) {
@@ -1139,7 +1135,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p3_1(MouseEvent event) {
         if (player_turn == 3) {
             if (showCardP3_1 == false) {
@@ -1152,7 +1147,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p4_2(MouseEvent event) {
         if (player_turn == 4) {
             if (showCardP4_2 == false) {
@@ -1165,7 +1159,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p4_1(MouseEvent event) {
         if (player_turn == 4) {
             if (showCardP4_1 == false) {
@@ -1178,7 +1171,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p5_1(MouseEvent event) {
         if (player_turn == 5) {
             if (showCardP5_1 == false) {
@@ -1191,7 +1183,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p5_2(MouseEvent event) {
         if (player_turn == 5) {
             if (showCardP5_2 == false) {
@@ -1204,7 +1195,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p6_1(MouseEvent event) {
         if (player_turn == 6) {
             if (showCardP6_1 == false) {
@@ -1217,7 +1207,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p6_2(MouseEvent event) {
         if (player_turn == 6) {
             if (showCardP6_2 == false) {
@@ -1230,7 +1219,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p8_1(MouseEvent event) {
         if (player_turn == 8) {
             if (showCardP8_1 == false) {
@@ -1243,7 +1231,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p7_1(MouseEvent event) {
         if (player_turn == 7) {
             if (showCardP7_1 == false) {
@@ -1256,7 +1243,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p7_2(MouseEvent event) {
         if (player_turn == 7) {
             if (showCardP7_2 == false) {
@@ -1269,7 +1255,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
     private void view_card_p8_2(MouseEvent event) {
         if (player_turn == 8) {
             if (showCardP8_2 == false) {
@@ -1331,5 +1316,69 @@ public class MainController implements Initializable {
         turn_indicator();
         updateMoney();
         
+    }
+
+    @FXML
+    private void hide_card_p1_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p1_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p2_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p2_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p3_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p3_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p4_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p4_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p5_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p5_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p6_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p6_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p8_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p7_1(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p7_2(MouseEvent event) {
+    }
+
+    @FXML
+    private void hide_card_p8_2(MouseEvent event) {
     }
 }
