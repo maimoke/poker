@@ -110,7 +110,7 @@
                   <Image url="@รวมไพ่/UI/GamePlay.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn_fold" layoutX="712.0" layoutY="665.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Fold">
+            <Button fx:id="btn_fold" layoutX="712.0" layoutY="665.0" mnemonicParsing="false" onAction="#fold" prefHeight="20.0" prefWidth="100.0" text="Fold">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -152,7 +152,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="btn_check" layoutX="823.0" layoutY="665.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="132.0" text="Check/Call">
+            <Button fx:id="btn_check" layoutX="823.0" layoutY="665.0" mnemonicParsing="false" onAction="#call" prefHeight="47.0" prefWidth="132.0" text="Check/Call">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -175,7 +175,7 @@
                   </Lighting>
                </effect>
             </Button>
-            <Button fx:id="btn_call" layoutX="967.0" layoutY="665.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Raise">
+            <Button fx:id="btn_call" layoutX="967.0" layoutY="665.0" mnemonicParsing="false" onAction="#raise" prefHeight="20.0" prefWidth="100.0" text="Raise">
                <font>
                   <Font name="Agency FB Bold" size="25.0" />
                </font>
@@ -283,27 +283,27 @@
                   <Font name="Agency FB Bold" size="18.0" />
                </font>
             </Button>
-            <ImageView fx:id="card_table_1" fitHeight="124.0" fitWidth="100.0" layoutX="400.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_1" fitHeight="124.0" fitWidth="100.0" layoutX="400.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Spade/AceOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card_table_2" fitHeight="124.0" fitWidth="100.0" layoutX="500.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_2" fitHeight="124.0" fitWidth="100.0" layoutX="500.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Spade/KingOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card_table_3" fitHeight="124.0" fitWidth="100.0" layoutX="600.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_3" fitHeight="124.0" fitWidth="100.0" layoutX="600.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Spade/QueenOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card_table_4" fitHeight="124.0" fitWidth="100.0" layoutX="700.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_4" fitHeight="124.0" fitWidth="100.0" layoutX="700.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Spade/JackOfSpade.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="card_table_5" fitHeight="124.0" fitWidth="100.0" layoutX="800.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="card_table_5" fitHeight="124.0" fitWidth="100.0" layoutX="800.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@รวมไพ่/Spade/TenOfSpade.png" />
                </image>

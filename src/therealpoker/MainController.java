@@ -30,6 +30,8 @@ public class MainController implements Initializable {
     public Deck d = new Deck();
     public Player[] p = new Player[9];
     public Table t = new Table();
+    public int raiseThisRound=0;
+    public int raiseTimeThisRound=0;
     boolean[] player_ingame = new boolean[9]; //default false
     int player_turn = 0;
     boolean game_setup = false;
@@ -37,6 +39,7 @@ public class MainController implements Initializable {
     int bigBlind = 0;
     int smallBlind = 0;
     int underTheGun = 0;
+    int round =0; //round=0 zero card on table//round=1 three card on table//round=2 four card on table//round=3 five card on table
     public Card back = new Card(0, 0);
     boolean showCardP1_1 = false;
     boolean showCardP1_2 = false;
@@ -327,7 +330,73 @@ public class MainController implements Initializable {
         view.setImage(imaged);
 
     }
-
+    public void checkRound(){
+        if (player_turn==underTheGun)
+        {
+            //check if all player betThisRound=raiseThisRound
+            int check=0;
+            for (int i=0;i<9;i++)
+            {
+                if (player_ingame[i])
+                if (p[i].isFold()||p[i].getBetThisRound()==raiseThisRound)
+                {
+                    check++;
+                }
+            }
+            if (playeringame==check){
+            raiseThisRound=0;
+            for (int i=0;i<9;i++)
+            {
+                if (player_ingame[i])
+                {
+                    p[i].turnEndResetBet();
+                }
+            }
+                round++;
+            if (round==1)
+            {
+                t.draw(d.draw());
+                t.draw(d.draw());
+                t.draw(d.draw());
+                showCard(card_table_1, t.getCard(0));
+                showCard(card_table_2, t.getCard(1));
+                showCard(card_table_3, t.getCard(2));
+                card_table_1.setVisible(true);
+                card_table_2.setVisible(true);
+                card_table_3.setVisible(true);
+            }
+            else if (round==2)
+            {
+                t.draw(d.draw());
+                showCard(card_table_4, t.getCard(3));
+                card_table_4.setVisible(true);
+            }
+            else if(round==3)
+            {
+                t.draw(d.draw());
+                showCard(card_table_5, t.getCard(4));
+                card_table_5.setVisible(true);
+            }
+            else System.out.println("round end");
+            }
+    }
+        
+    }
+    public int findNextPlayer(){
+        for (int i=player_turn-1;i>=0;i--)
+        {
+            if (i==0)
+            {
+                i=8;
+            }
+            if (player_ingame[i]&&!p[i].isFold())
+                {
+                    return i;
+                }
+        }
+        return 0;
+    }
+    
     public void updateMoney() {
         if (player_ingame[1]) {
             money_p1.setText(String.valueOf(p[1].getCredit()));
@@ -853,10 +922,14 @@ public class MainController implements Initializable {
         System.out.println("bigBlind = " + bigBlind);
         System.out.println("underTheGun = " + underTheGun);
         setMoneyVisible();
-        updateMoney();
         btn_fold.setVisible(true);
         btn_check.setVisible(true);
         fill_raise.setVisible(true);
+        pot.setVisible(true);
+        bg_pot.setVisible(true);
+        raiseThisRound=t.bet(p[bigBlind].raise(10000));
+        t.bet(p[smallBlind].call(5000));
+        updateMoney();
     }
 
     @FXML
@@ -1065,6 +1138,44 @@ public class MainController implements Initializable {
                 showCardP8_2 = false;
             }
         }
+    }
+
+    @FXML
+    private void fold(ActionEvent event) {
+        p[player_turn].fold();
+        switch(player_turn)
+        {
+            case 1:player1.setOpacity(0.5); break;
+            case 2:player2.setOpacity(0.5); break;
+            case 3:player3.setOpacity(0.5); break;
+            case 4:player4.setOpacity(0.5); break;
+            case 5:player5.setOpacity(0.5); break;
+            case 6:player6.setOpacity(0.5); break;
+            case 7:player7.setOpacity(0.5); break;
+            case 8:player8.setOpacity(0.5); break;
+        }
+        player_turn=findNextPlayer();
+        checkRound();
+        turn_indicator();
+        updateMoney();
+    }
+
+    @FXML
+    private void call(ActionEvent event) {
+        t.bet(p[player_turn].call(raiseThisRound-p[player_turn].getBetThisRound()));
+        player_turn=findNextPlayer();
+        checkRound();
+        turn_indicator();
+        updateMoney();
+    }
+
+    @FXML
+    private void raise(ActionEvent event) {
+        t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
+        player_turn=findNextPlayer();
+        checkRound();
+        turn_indicator();
+        updateMoney();
     }
 
 }
