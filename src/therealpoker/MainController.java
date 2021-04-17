@@ -207,6 +207,40 @@ public class MainController implements Initializable {
     private Rectangle bg_pot;
     @FXML
     private Button btn_raise;
+    @FXML
+    private Label call_value;
+    @FXML
+    private ImageView backcard_p1_1;
+    @FXML
+    private ImageView backcard_p1_2;
+    @FXML
+    private ImageView backcard_p2_1;
+    @FXML
+    private ImageView backcard_p2_2;
+    @FXML
+    private ImageView backcard_p3_1;
+    @FXML
+    private ImageView backcard_p3_2;
+    @FXML
+    private ImageView backcard_p4_1;
+    @FXML
+    private ImageView backcard_p4_2;
+    @FXML
+    private ImageView backcard_p5_1;
+    @FXML
+    private ImageView backcard_p5_2;
+    @FXML
+    private ImageView backcard_p6_1;
+    @FXML
+    private ImageView backcard_p6_2;
+    @FXML
+    private ImageView backcard_p7_1;
+    @FXML
+    private ImageView backcard_p7_2;
+    @FXML
+    private ImageView backcard_p8_1;
+    @FXML
+    private ImageView backcard_p8_2;
 
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();

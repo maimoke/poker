@@ -152,9 +152,9 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="btn_check" layoutX="823.0" layoutY="665.0" mnemonicParsing="false" onAction="#call" prefHeight="47.0" prefWidth="132.0" text="Check/Call">
+            <Button fx:id="btn_check" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="823.0" layoutY="665.0" mnemonicParsing="false" onAction="#call" prefHeight="47.0" prefWidth="132.0" text="Check/Call">
                <font>
-                  <Font name="Agency FB Bold" size="25.0" />
+                  <Font name="Agency FB Bold" size="20.0" />
                </font>
                <effect>
                   <Lighting diffuseConstant="1.65">
@@ -654,6 +654,87 @@
                   <Font name="Agency FB Bold" size="24.0" />
                </font>
             </Label>
+            <Label fx:id="call_value" layoutX="859.0" layoutY="692.0" prefHeight="18.0" prefWidth="61.0" text="200000000" />
+            <ImageView fx:id="backcard_p1_1" fitHeight="124.0" fitWidth="60.0" layoutX="73.0" layoutY="117.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p1_2" fitHeight="124.0" fitWidth="60.0" layoutX="138.0" layoutY="117.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p2_1" fitHeight="124.0" fitWidth="60.0" layoutY="386.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p2_2" fitHeight="124.0" fitWidth="60.0" layoutX="67.0" layoutY="386.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p3_1" fitHeight="124.0" fitWidth="60.0" layoutX="67.0" layoutY="582.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p3_2" fitHeight="124.0" fitWidth="60.0" layoutX="133.0" layoutY="582.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p4_1" fitHeight="124.0" fitWidth="60.0" layoutX="294.0" layoutY="611.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p4_2" fitHeight="124.0" fitWidth="60.0" layoutX="358.0" layoutY="611.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p5_1" fitHeight="124.0" fitWidth="60.0" layoutX="829.0" layoutY="569.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p5_2" fitHeight="124.0" fitWidth="60.0" layoutX="894.0" layoutY="569.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p6_1" fitHeight="124.0" fitWidth="60.0" layoutX="1114.0" layoutY="532.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p6_2" fitHeight="124.0" fitWidth="60.0" layoutX="1179.0" layoutY="532.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p7_1" fitHeight="124.0" fitWidth="60.0" layoutX="1156.0" layoutY="283.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p7_2" fitHeight="124.0" fitWidth="60.0" layoutX="1220.0" layoutY="283.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p8_1" fitHeight="124.0" fitWidth="60.0" layoutX="1049.0" layoutY="75.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="backcard_p8_2" fitHeight="124.0" fitWidth="60.0" layoutX="1114.0" layoutY="75.0" onMouseClicked="#view_card_p1_1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/behide.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
