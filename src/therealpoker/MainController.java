@@ -861,178 +861,209 @@ public class MainController implements Initializable {
 
     @FXML
     private void view_card_p1_2(MouseEvent event) {
-        if (showCardP1_2 == false) {
-            showCard(card_p1_2, p[1].cardOnHand.get(1));
-            showCardP1_2 = true;
-        } else {
-            showCard(card_p1_2, back);
-            showCardP1_2 = false;
+        if (player_turn == 1) {
+            if (showCardP1_2 == false) {
+                showCard(card_p1_2, p[1].cardOnHand.get(1));
+                showCardP1_2 = true;
+            } else {
+                showCard(card_p1_2, back);
+                showCardP1_2 = false;
+            }
         }
-
     }
 
     @FXML
     private void view_card_p1_1(MouseEvent event) {
-        if (showCardP1_1 == false) {
-            showCard(card_p1_1, p[1].cardOnHand.get(0));
-            showCardP1_1 = true;
-        } else {
-            showCard(card_p1_1, back);
-            showCardP1_1 = false;
+        if (player_turn == 1) {
+            if (showCardP1_1 == false) {
+                showCard(card_p1_1, p[1].cardOnHand.get(0));
+                showCardP1_1 = true;
+            } else {
+                showCard(card_p1_1, back);
+                showCardP1_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p2_2(MouseEvent event) {
-        if (showCardP2_2 == false) {
-            showCard(card_p2_2, p[2].cardOnHand.get(1));
-            showCardP2_2 = true;
-        } else {
-            showCard(card_p2_2, back);
-            showCardP2_2 = false;
+        if (player_turn == 2) {
+            if (showCardP2_2 == false) {
+                showCard(card_p2_2, p[2].cardOnHand.get(1));
+                showCardP2_2 = true;
+            } else {
+                showCard(card_p2_2, back);
+                showCardP2_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p2_1(MouseEvent event) {
-        if (showCardP2_1 == false) {
-            showCard(card_p2_1, p[2].cardOnHand.get(0));
-            showCardP2_1 = true;
-        } else {
-            showCard(card_p2_1, back);
-            showCardP2_1 = false;
+        if (player_turn == 2) {
+            if (showCardP2_1 == false) {
+                showCard(card_p2_1, p[2].cardOnHand.get(0));
+                showCardP2_1 = true;
+            } else {
+                showCard(card_p2_1, back);
+                showCardP2_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p3_2(MouseEvent event) {
-        if (showCardP3_2 == false) {
-            showCard(card_p3_2, p[3].cardOnHand.get(1));
-            showCardP3_2 = true;
-        } else {
-            showCard(card_p3_2, back);
-            showCardP3_2 = false;
+        if (player_turn == 3) {
+            if (showCardP3_2 == false) {
+                showCard(card_p3_2, p[3].cardOnHand.get(1));
+                showCardP3_2 = true;
+            } else {
+                showCard(card_p3_2, back);
+                showCardP3_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p3_1(MouseEvent event) {
-        if (showCardP3_1 == false) {
-            showCard(card_p3_1, p[3].cardOnHand.get(0));
-            showCardP3_1 = true;
-        } else {
-            showCard(card_p3_1, back);
-            showCardP3_1 = false;
+        if (player_turn == 3) {
+            if (showCardP3_1 == false) {
+                showCard(card_p3_1, p[3].cardOnHand.get(0));
+                showCardP3_1 = true;
+            } else {
+                showCard(card_p3_1, back);
+                showCardP3_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p4_2(MouseEvent event) {
-        if (showCardP4_2 == false) {
-            showCard(card_p4_2, p[4].cardOnHand.get(1));
-            showCardP4_2 = true;
-        } else {
-            showCard(card_p4_2, back);
-            showCardP4_2 = false;
+        if (player_turn == 4) {
+            if (showCardP4_2 == false) {
+                showCard(card_p4_2, p[4].cardOnHand.get(1));
+                showCardP4_2 = true;
+            } else {
+                showCard(card_p4_2, back);
+                showCardP4_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p4_1(MouseEvent event) {
-        if (showCardP4_1 == false) {
-            showCard(card_p4_1, p[4].cardOnHand.get(0));
-            showCardP4_1 = true;
-        } else {
-            showCard(card_p4_1, back);
-            showCardP4_1 = false;
+        if (player_turn == 4) {
+            if (showCardP4_1 == false) {
+                showCard(card_p4_1, p[4].cardOnHand.get(0));
+                showCardP4_1 = true;
+            } else {
+                showCard(card_p4_1, back);
+                showCardP4_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p5_1(MouseEvent event) {
-        if (showCardP5_1 == false) {
-            showCard(card_p5_1, p[5].cardOnHand.get(0));
-            showCardP5_1 = true;
-        } else {
-            showCard(card_p5_1, back);
-            showCardP5_1 = false;
+        if (player_turn == 5) {
+            if (showCardP5_1 == false) {
+                showCard(card_p5_1, p[5].cardOnHand.get(0));
+                showCardP5_1 = true;
+            } else {
+                showCard(card_p5_1, back);
+                showCardP5_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p5_2(MouseEvent event) {
-        if (showCardP5_2 == false) {
-            showCard(card_p5_2, p[5].cardOnHand.get(1));
-            showCardP5_2 = true;
-        } else {
-            showCard(card_p5_2, back);
-            showCardP5_2 = false;
+        if (player_turn == 5) {
+            if (showCardP5_2 == false) {
+                showCard(card_p5_2, p[5].cardOnHand.get(1));
+                showCardP5_2 = true;
+            } else {
+                showCard(card_p5_2, back);
+                showCardP5_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p6_1(MouseEvent event) {
-        if (showCardP6_1 == false) {
-            showCard(card_p6_1, p[6].cardOnHand.get(0));
-            showCardP6_1 = true;
-        } else {
-            showCard(card_p6_1, back);
-            showCardP6_1 = false;
+        if (player_turn == 6) {
+            if (showCardP6_1 == false) {
+                showCard(card_p6_1, p[6].cardOnHand.get(0));
+                showCardP6_1 = true;
+            } else {
+                showCard(card_p6_1, back);
+                showCardP6_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p6_2(MouseEvent event) {
-        if (showCardP6_2 == false) {
-            showCard(card_p6_2, p[6].cardOnHand.get(1));
-            showCardP6_2 = true;
-        } else {
-            showCard(card_p6_2, back);
-            showCardP6_2 = false;
+        if (player_turn == 6) {
+            if (showCardP6_2 == false) {
+                showCard(card_p6_2, p[6].cardOnHand.get(1));
+                showCardP6_2 = true;
+            } else {
+                showCard(card_p6_2, back);
+                showCardP6_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p8_1(MouseEvent event) {
-        if (showCardP8_1 == false) {
-            showCard(card_p8_1, p[8].cardOnHand.get(0));
-            showCardP8_1 = true;
-        } else {
-            showCard(card_p8_1, back);
-            showCardP8_1 = false;
+        if (player_turn == 8) {
+            if (showCardP8_1 == false) {
+                showCard(card_p8_1, p[8].cardOnHand.get(0));
+                showCardP8_1 = true;
+            } else {
+                showCard(card_p8_1, back);
+                showCardP8_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p7_1(MouseEvent event) {
-        if (showCardP7_1 == false) {
-            showCard(card_p7_1, p[7].cardOnHand.get(0));
-            showCardP7_1 = true;
-        } else {
-            showCard(card_p7_1, back);
-            showCardP7_1 = false;
+        if (player_turn == 7) {
+            if (showCardP7_1 == false) {
+                showCard(card_p7_1, p[7].cardOnHand.get(0));
+                showCardP7_1 = true;
+            } else {
+                showCard(card_p7_1, back);
+                showCardP7_1 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p7_2(MouseEvent event) {
-        if (showCardP7_2 == false) {
-            showCard(card_p7_2, p[7].cardOnHand.get(1));
-            showCardP7_2 = true;
-        } else {
-            showCard(card_p7_2, back);
-            showCardP7_2 = false;
+        if (player_turn == 7) {
+            if (showCardP7_2 == false) {
+                showCard(card_p7_2, p[7].cardOnHand.get(1));
+                showCardP7_2 = true;
+            } else {
+                showCard(card_p7_2, back);
+                showCardP7_2 = false;
+            }
         }
     }
 
     @FXML
     private void view_card_p8_2(MouseEvent event) {
-        if (showCardP8_2 == false) {
-            showCard(card_p8_2, p[8].cardOnHand.get(1));
-            showCardP8_2 = true;
-        } else {
-            showCard(card_p8_2, back);
-            showCardP8_2 = false;
+        if (player_turn == 8) {
+            if (showCardP8_2 == false) {
+                showCard(card_p8_2, p[8].cardOnHand.get(1));
+                showCardP8_2 = true;
+            } else {
+                showCard(card_p8_2, back);
+                showCardP8_2 = false;
+            }
         }
     }
 
