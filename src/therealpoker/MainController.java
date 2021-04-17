@@ -30,6 +30,7 @@ public class MainController implements Initializable {
     public Deck d = new Deck();
     public Player[] p = new Player[9];
     public Table t = new Table();
+    public Checking[] c = new Checking[9];
     public int raiseThisRound=0;
     public int raiseTimeThisRound=0;
     boolean[] player_ingame = new boolean[9]; //default false
@@ -72,8 +73,6 @@ public class MainController implements Initializable {
     private TextField fill_raise;
     @FXML
     private Button btn_check;
-    @FXML
-    private Button btn_call;
     @FXML
     private AnchorPane Game;
     @FXML
@@ -206,6 +205,8 @@ public class MainController implements Initializable {
     private Rectangle bg_p8;
     @FXML
     private Rectangle bg_pot;
+    @FXML
+    private Button btn_raise;
 
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
@@ -331,14 +332,12 @@ public class MainController implements Initializable {
 
     }
     public void checkRound(){
-        if (player_turn==underTheGun)
-        {
             //check if all player betThisRound=raiseThisRound
             int check=0;
             for (int i=0;i<9;i++)
             {
                 if (player_ingame[i])
-                if (p[i].isFold()||p[i].getBetThisRound()==raiseThisRound)
+                if (p[i].isFold()||(p[i].getBetThisRound()==raiseThisRound&&p[i].isCheck()))
                 {
                     check++;
                 }
@@ -350,8 +349,12 @@ public class MainController implements Initializable {
                 if (player_ingame[i])
                 {
                     p[i].turnEndResetBet();
+                    p[i].setCheck(false);
                 }
             }
+            raiseTimeThisRound=0;
+            fill_raise.setVisible(true);
+            btn_raise.setVisible(true);
                 round++;
             if (round==1)
             {
@@ -377,7 +380,93 @@ public class MainController implements Initializable {
                 showCard(card_table_5, t.getCard(4));
                 card_table_5.setVisible(true);
             }
-            else System.out.println("round end");
+            else 
+            {
+                //calculate winner
+                System.out.println("round end");
+                int winnerAmount=0;
+                long highestScore=0;
+                boolean[] win=new boolean[9];
+                for (int i=0;i<9;i++)
+                {
+                    if (player_ingame[i])
+                    {
+                        c[i] = new Checking(p[i],t);
+                        if (c[i].getScore()>highestScore)
+                        {
+                            highestScore=c[i].getScore();
+                            winnerAmount=1;
+                            for (int j=0;j<9;j++)
+                                win[j]=false;
+                            win[i]=true;
+                        }
+                        else if (c[i].getScore()==highestScore)
+                        {
+                            win[i]=true;
+                        }
+                        
+                    }
+                }
+                //reward winner
+                for (int i=0;i<9;i++)
+                {
+                    if (player_ingame[i]&&win[i])
+                    {
+                        p[i].reward(t.getPot()/winnerAmount);
+                        p[i].reset();
+                    }
+                }
+                
+                
+                //reset
+                t.reset();
+                d.reset();
+                bigBlind=findNextPlayer();
+                smallBlind=findNextPlayer();
+                underTheGun=findNextPlayer();
+                player_turn=underTheGun;
+                round=0;
+                raiseThisRound=t.bet(p[bigBlind].raise(10000));
+                t.bet(p[smallBlind].call(5000));
+                updateMoney();
+                //ui reset
+                showCard(card_p1_1,back);
+                showCard(card_p1_2,back);
+                showCard(card_p2_2,back);
+                showCard(card_p3_1,back);
+                showCard(card_p3_2,back);
+                showCard(card_p4_1,back);
+                showCard(card_p4_2,back);
+                showCard(card_p5_1,back);
+                showCard(card_p5_2,back);
+                showCard(card_p6_1,back);
+                showCard(card_p6_2,back);
+                showCard(card_p7_1,back);
+                showCard(card_p7_2,back);
+                showCard(card_p8_1,back);
+                showCard(card_p8_2,back);
+                card_table_1.setVisible(false);
+                card_table_2.setVisible(false);
+                card_table_3.setVisible(false);
+                card_table_4.setVisible(false);
+                card_table_5.setVisible(false);
+                player1.setOpacity(1);
+                player2.setOpacity(1);
+                player3.setOpacity(1);
+                player4.setOpacity(1);
+                player5.setOpacity(1);
+                player6.setOpacity(1);
+                player7.setOpacity(1);
+                player8.setOpacity(1);
+                //draw 2 card to start new game
+            for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
+                for (int playerItr = 0; playerItr < 9; playerItr++) {
+                    if (player_ingame[playerItr]) {
+                        p[playerItr].draw(d.draw()); //draw 2 per player
+                    }
+                }
+            }
+                
             }
     }
         
@@ -670,8 +759,8 @@ public class MainController implements Initializable {
         //gameplay hide button+textfield
         btn_fold.setVisible(false);
         fill_raise.setVisible(false);
+        btn_raise.setVisible(false);
         btn_check.setVisible(false);
-        btn_call.setVisible(false);
 
         //player
         player1.setVisible(false);
@@ -924,6 +1013,7 @@ public class MainController implements Initializable {
         setMoneyVisible();
         btn_fold.setVisible(true);
         btn_check.setVisible(true);
+        btn_raise.setVisible(true);
         fill_raise.setVisible(true);
         pot.setVisible(true);
         bg_pot.setVisible(true);
@@ -1168,14 +1258,23 @@ public class MainController implements Initializable {
         turn_indicator();
         updateMoney();
     }
-
+    
     @FXML
     private void raise(ActionEvent event) {
-        t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
+        raiseTimeThisRound++;
+        if (raiseTimeThisRound==3)
+        {
+            btn_raise.setVisible(false);
+            fill_raise.setVisible(false);
+        }
+        t.bet(p[player_turn].call(raiseThisRound-p[player_turn].getBetThisRound()));
+        System.out.println(t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText()))));
+        raiseThisRound+=t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
         player_turn=findNextPlayer();
+        fill_raise.setText("");
         checkRound();
         turn_indicator();
         updateMoney();
+        
     }
-
 }

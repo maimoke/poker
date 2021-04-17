@@ -6,7 +6,6 @@ public class Table {
 
     //Datafield
     private int pot = 0;
-    private int turn = 0;
     ArrayList<Card> card = new ArrayList<Card>();
 
     //Constructor
@@ -19,8 +18,13 @@ public class Table {
 
     }
 
+    
     public int getPot() {
         return pot;
+    }
+    public void reset(){
+        this.pot=0;
+        card.clear();
     }
 
     //Methods
@@ -37,7 +41,8 @@ public class Table {
     }
 
     public int bet(int bet) {//Get bet from Player.class
-        return pot += bet;
+        pot+=bet;
+        return bet;
     }
 
 }

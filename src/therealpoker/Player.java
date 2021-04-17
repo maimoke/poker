@@ -17,6 +17,12 @@ public class Player {
     ArrayList<Card> cardOnHand = new ArrayList<Card>();
     public boolean fold = false;
     public boolean allIn=false;
+    public boolean check=false;
+
+    public boolean isCheck() {
+        return check;
+    }
+
     public int betThisRound=0;
 
     public int getBetThisRound() {
@@ -33,14 +39,24 @@ public class Player {
 
     Player(int credit) {
         this.credit = credit;
+        this.betThisRound=0;
     }
     Player(){
+    }
+    public void reset()
+    {
+        this.fold=false;
+        this.check=false;
+        cardOnHand.clear();
     }
 
     public int getCredit() {
         return credit;
     }
-
+    
+    public void reward(int reward){
+        this.credit+=reward;
+    }
     
     public void draw(Card card) {
         cardOnHand.add(card);
@@ -61,12 +77,18 @@ public class Player {
     public int call(int raise) {
         this.credit = this.credit - raise;
         this.betThisRound=this.betThisRound+raise;
+        this.check=true;
         return raise;
     }
 
     public int raise(int raise) {
         this.credit = this.credit - raise;
         this.betThisRound=this.betThisRound+raise;
+        this.check=true;
         return raise;
+    }
+
+    public void setCheck(boolean check) {
+        this.check = check;
     }
 }
