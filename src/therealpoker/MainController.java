@@ -439,17 +439,16 @@ public class MainController implements Initializable {
                 //reset
                 t.reset();
                 d.reset();
-                player_turn=bigBlind;
-                player_turn =findNextPlayer();
+                player_turn = bigBlind;
+                player_turn = findNextPlayer();
                 bigBlind = player_turn;
-                player_turn=findNextPlayer();
+                player_turn = findNextPlayer();
                 smallBlind = player_turn;
-                player_turn= findNextPlayer();
+                player_turn = findNextPlayer();
                 underTheGun = player_turn;
                 System.out.println("bigBlind = " + bigBlind);
                 System.out.println("smallBlind = " + smallBlind);
-                System.out.println("underTheGun = "+ underTheGun);
-                player_turn = underTheGun;
+                System.out.println("underTheGun = " + underTheGun);
                 round = 0;
                 raiseThisRound = t.bet(p[bigBlind].raise(10000));
                 t.bet(p[smallBlind].call(5000));
@@ -469,7 +468,7 @@ public class MainController implements Initializable {
                 player7.setOpacity(1);
                 player8.setOpacity(1);
                 startGameDraw();
-                call_value.setText(Integer.toString(raiseThisRound-p[player_turn].getBetThisRound()));
+                call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
             }
         }
 
@@ -485,6 +484,62 @@ public class MainController implements Initializable {
             }
         }
         return 0;
+    }
+
+    public boolean checkFold() {
+        int check = 0;
+        for (int i = 1; i < 9; i++) {
+            if (player_ingame[i] && p[i].isFold()) {
+                check++;
+            }
+        }
+        System.out.println("check " + check);
+        if (check == playeringame - 1) {
+            raiseThisRound = 0;
+            for (int i = 1; i < 9; i++) {
+                if (player_ingame[i]) {
+                    if (!p[i].isFold()) {
+                        p[i].reward(t.getPot());
+                    }
+                    p[i].reset();
+                }
+            }
+            t.reset();
+            d.reset();
+            player_turn = bigBlind;
+            player_turn = findNextPlayer();
+            bigBlind = player_turn;
+            player_turn = findNextPlayer();
+            smallBlind = player_turn;
+            player_turn = findNextPlayer();
+            underTheGun = player_turn;
+            System.out.println("bigBlind = " + bigBlind);
+            System.out.println("smallBlind = " + smallBlind);
+            System.out.println("underTheGun = " + underTheGun);
+            round = 0;
+            raiseThisRound = t.bet(p[bigBlind].raise(10000));
+            t.bet(p[smallBlind].call(5000));
+            updateMoney();
+            //ui reset
+            card_table_1.setVisible(false);
+            card_table_2.setVisible(false);
+            card_table_3.setVisible(false);
+            card_table_4.setVisible(false);
+            card_table_5.setVisible(false);
+            player1.setOpacity(1);
+            player2.setOpacity(1);
+            player3.setOpacity(1);
+            player4.setOpacity(1);
+            player5.setOpacity(1);
+            player6.setOpacity(1);
+            player7.setOpacity(1);
+            player8.setOpacity(1);
+            startGameDraw();
+            call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
+            turn_indicator();
+            return true;
+        }
+        return false;
     }
 
     public void showBack(int p) {
@@ -1130,7 +1185,7 @@ public class MainController implements Initializable {
         raiseThisRound = t.bet(p[bigBlind].raise(10000));
         t.bet(p[smallBlind].call(5000));
         updateMoney();
-        call_value.setText(Integer.toString(raiseThisRound-p[player_turn].getBetThisRound()));
+        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
     }
 
     @FXML
@@ -1275,19 +1330,24 @@ public class MainController implements Initializable {
                 break;
         }
         showBack(player_turn);
+        if (checkFold()){
+        }
+        else{
         player_turn = findNextPlayer();
-        call_value.setText(Integer.toString(raiseThisRound-p[player_turn].getBetThisRound()));
+        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
         checkRound();
         turn_indicator();
         updateMoney();
+        }
     }
 
     @FXML
     private void call(ActionEvent event) {
         t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
         showBack(player_turn);
+        checkFold();
         player_turn = findNextPlayer();
-                call_value.setText(Integer.toString(raiseThisRound-p[player_turn].getBetThisRound()));
+        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
         checkRound();
         turn_indicator();
         updateMoney();
@@ -1303,8 +1363,9 @@ public class MainController implements Initializable {
         t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
         raiseThisRound += t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
         showBack(player_turn);
+        checkFold();
         player_turn = findNextPlayer();
-        call_value.setText(Integer.toString(raiseThisRound-p[player_turn].getBetThisRound()));
+        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
         fill_raise.setText("");
         checkRound();
         turn_indicator();

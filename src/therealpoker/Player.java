@@ -48,6 +48,7 @@ public class Player {
         this.fold=false;
         this.check=false;
         cardOnHand.clear();
+        this.betThisRound=0;
     }
 
     public int getCredit() {
