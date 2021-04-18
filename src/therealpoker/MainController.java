@@ -450,50 +450,90 @@ public class MainController implements Initializable {
 
                     }
                 }
-                //reward winner
-                for (int i = 0; i < 9; i++) {
-                    if (player_ingame[i]) {
-                        if (win[i])
-                        p[i].reward(t.getPot() / winnerAmount);
-                        p[i].reset();
+                pot_win.setText(Integer.toString(t.getPot()));
+                Win.setVisible(true);
+                for (int i = 1; i < 9; i++) {
+                    if (win[i]) {
+                        switch (i) {
+                            case 1:
+                                p1_win.setOpacity(1);
+                                break;
+                            case 2:
+                                p2_win.setOpacity(1);
+                                break;
+                            case 3:
+                                p3_win.setOpacity(1);
+                                break;
+                            case 4:
+                                p4_win.setOpacity(1);
+                                break;
+                            case 5:
+                                p5_win.setOpacity(1);
+                                break;
+                            case 6:
+                                p6_win.setOpacity(1);
+                                break;
+                            case 7:
+                                p7_win.setOpacity(1);
+                                break;
+                            case 8:
+                                p8_win.setOpacity(1);
+                                break;
+                        }
                     }
                 }
 
-                //reset
-                t.reset();
-                d.reset();
-                player_turn = smallBlind;
-                player_turn = findNextPlayer();
-                smallBlind = player_turn;
-                player_turn = findNextPlayer();
-                bigBlind = player_turn;               
-                player_turn = findNextPlayer();
-                underTheGun = player_turn;
-                System.out.println("smallBlind = " + smallBlind);
-                System.out.println("bigBlind = " + bigBlind);                
-                System.out.println("underTheGun = " + underTheGun);
-                round = 0;
-                raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
-                t.bet(p[smallBlind].call(5000));
-                updateMoney();
-                //ui reset
-                card_table_1.setVisible(false);
-                card_table_2.setVisible(false);
-                card_table_3.setVisible(false);
-                card_table_4.setVisible(false);
-                card_table_5.setVisible(false);
-                player1.setOpacity(1);
-                player2.setOpacity(1);
-                player3.setOpacity(1);
-                player4.setOpacity(1);
-                player5.setOpacity(1);
-                player6.setOpacity(1);
-                player7.setOpacity(1);
-                player8.setOpacity(1);
+                //reward winner
+                for (int i = 0; i < 9; i++) {
+                    if (player_ingame[i]) {
+                        if (win[i]) {
+                            p[i].reward(t.getPot() / winnerAmount);
+                        }
+                        p[i].reset();
+                    }
+                }
+                resetToNextRound();
+                //next Round
                 startGameDraw();
+                turn_indicator();
                 call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
             }
         }
+
+    }
+
+    public void resetToNextRound() {
+        //reset
+        t.reset();
+        d.reset();
+        player_turn = smallBlind;
+        player_turn = findNextPlayer();
+        smallBlind = player_turn;
+        player_turn = findNextPlayer();
+        bigBlind = player_turn;
+        player_turn = findNextPlayer();
+        underTheGun = player_turn;
+        System.out.println("smallBlind = " + smallBlind);
+        System.out.println("bigBlind = " + bigBlind);
+        System.out.println("underTheGun = " + underTheGun);
+        round = 0;
+        raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
+        t.bet(p[smallBlind].call(5000));
+        updateMoney();
+        //ui reset
+        card_table_1.setVisible(false);
+        card_table_2.setVisible(false);
+        card_table_3.setVisible(false);
+        card_table_4.setVisible(false);
+        card_table_5.setVisible(false);
+        player1.setOpacity(1);
+        player2.setOpacity(1);
+        player3.setOpacity(1);
+        player4.setOpacity(1);
+        player5.setOpacity(1);
+        player6.setOpacity(1);
+        player7.setOpacity(1);
+        player8.setOpacity(1);
 
     }
 
@@ -517,46 +557,47 @@ public class MainController implements Initializable {
             }
         }
         System.out.println("check " + check);
+        int winner=0;
         if (check == playeringame - 1) {
             raiseThisRound = 0;
             for (int i = 1; i < 9; i++) {
                 if (player_ingame[i]) {
                     if (!p[i].isFold()) {
                         p[i].reward(t.getPot());
+                        winner=i;
                     }
                     p[i].reset();
                 }
             }
-            t.reset();
-            d.reset();
-            player_turn = smallBlind;
-            player_turn = findNextPlayer();
-            smallBlind = player_turn;
-            player_turn = findNextPlayer();
-            bigBlind = player_turn;          
-            player_turn = findNextPlayer();
-            underTheGun = player_turn;
-            System.out.println("smallBlind = " + smallBlind);
-            System.out.println("bigBlind = " + bigBlind);
-            System.out.println("underTheGun = " + underTheGun);
-            round = 0;
-            raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
-            t.bet(p[smallBlind].call(5000));
-            updateMoney();
-            //ui reset
-            card_table_1.setVisible(false);
-            card_table_2.setVisible(false);
-            card_table_3.setVisible(false);
-            card_table_4.setVisible(false);
-            card_table_5.setVisible(false);
-            player1.setOpacity(1);
-            player2.setOpacity(1);
-            player3.setOpacity(1);
-            player4.setOpacity(1);
-            player5.setOpacity(1);
-            player6.setOpacity(1);
-            player7.setOpacity(1);
-            player8.setOpacity(1);
+            pot_win.setText(Integer.toString(t.getPot()));
+            Win.setVisible(true);
+                        switch (winner) {
+                            case 1:
+                                p1_win.setOpacity(1);
+                                break;
+                            case 2:
+                                p2_win.setOpacity(1);
+                                break;
+                            case 3:
+                                p3_win.setOpacity(1);
+                                break;
+                            case 4:
+                                p4_win.setOpacity(1);
+                                break;
+                            case 5:
+                                p5_win.setOpacity(1);
+                                break;
+                            case 6:
+                                p6_win.setOpacity(1);
+                                break;
+                            case 7:
+                                p7_win.setOpacity(1);
+                                break;
+                            case 8:
+                                p8_win.setOpacity(1);
+                                break;
+                        }
+            resetToNextRound();
             startGameDraw();
             call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
             turn_indicator();
@@ -895,6 +936,7 @@ public class MainController implements Initializable {
         // TODO
         MainMenu.setVisible(true);
         Game.setVisible(false);
+        Win.setVisible(false);
         stupid_pane.setCursor(Cursor.DEFAULT);
     }
 
@@ -961,6 +1003,15 @@ public class MainController implements Initializable {
         money_p8.setVisible(false);
         pot.setVisible(false);
         bg_pot.setVisible(false);
+        //win
+        p1_win.setOpacity(0.3);
+        p2_win.setOpacity(0.3);
+        p3_win.setOpacity(0.3);
+        p4_win.setOpacity(0.3);
+        p5_win.setOpacity(0.3);
+        p6_win.setOpacity(0.3);
+        p7_win.setOpacity(0.3);
+        p8_win.setOpacity(0.3);
     }
 
     @FXML
@@ -1353,14 +1404,13 @@ public class MainController implements Initializable {
                 break;
         }
         showBack(player_turn);
-        if (checkFold()){
-        }
-        else{
-        player_turn = findNextPlayer();
-        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
-        checkRound();
-        turn_indicator();
-        updateMoney();
+        if (checkFold()) {
+        } else {
+            player_turn = findNextPlayer();
+            call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
+            checkRound();
+            turn_indicator();
+            updateMoney();
         }
     }
 
@@ -1474,5 +1524,18 @@ public class MainController implements Initializable {
     @FXML
     private void hide_card_p8_2(MouseEvent event) {
         backcard_p8_2.setVisible(true);
+    }
+
+    @FXML
+    private void continueToNextRound(ActionEvent event) {
+        Win.setVisible(false);
+        p1_win.setOpacity(0.3);
+        p2_win.setOpacity(0.3);
+        p3_win.setOpacity(0.3);
+        p4_win.setOpacity(0.3);
+        p5_win.setOpacity(0.3);
+        p6_win.setOpacity(0.3);
+        p7_win.setOpacity(0.3);
+        p8_win.setOpacity(0.3);
     }
 }

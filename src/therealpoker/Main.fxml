@@ -794,7 +794,7 @@
                   <Image url="@รวมไพ่/Player/player8.png" />
                </image>
             </ImageView>
-            <Button fx:id="continue_btn" layoutX="590.0" layoutY="474.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Continue">
+            <Button fx:id="continue_btn" layoutX="590.0" layoutY="474.0" mnemonicParsing="false" onAction="#continueToNextRound" prefHeight="25.0" prefWidth="100.0" text="Continue">
                <font>
                   <Font name="Agency FB Bold" size="20.0" />
                </font>
