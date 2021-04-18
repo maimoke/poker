@@ -430,7 +430,8 @@ public class MainController implements Initializable {
                 }
                 //reward winner
                 for (int i = 0; i < 9; i++) {
-                    if (player_ingame[i] && win[i]) {
+                    if (player_ingame[i]) {
+                        if (win[i])
                         p[i].reward(t.getPot() / winnerAmount);
                         p[i].reset();
                     }
