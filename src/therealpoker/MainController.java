@@ -241,6 +241,24 @@ public class MainController implements Initializable {
     private ImageView backcard_p8_1;
     @FXML
     private ImageView backcard_p8_2;
+    @FXML
+    private Label pot_win;
+    @FXML
+    private ImageView p1_win;
+    @FXML
+    private ImageView p2_win;
+    @FXML
+    private ImageView p3_win;
+    @FXML
+    private ImageView p4_win;
+    @FXML
+    private ImageView p5_win;
+    @FXML
+    private ImageView p6_win;
+    @FXML
+    private ImageView p7_win;
+    @FXML
+    private ImageView p8_win;
 
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
