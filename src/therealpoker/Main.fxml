@@ -737,7 +737,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="720.0" prefWidth="1280.0">
+      <AnchorPane fx:id="Win" prefHeight="720.0" prefWidth="1280.0">
          <children>
             <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -794,6 +794,22 @@
                   <Image url="@รวมไพ่/Player/player8.png" />
                </image>
             </ImageView>
+            <Button fx:id="continue_btn" layoutX="590.0" layoutY="474.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Continue">
+               <font>
+                  <Font name="Agency FB Bold" size="20.0" />
+               </font>
+               <effect>
+                  <Lighting bumpInput="$null" diffuseConstant="1.45">
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="1.0" green="0.8959845900535583" blue="0.4399999976158142" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+            </Button>
          </children>
       </AnchorPane>
    </children>

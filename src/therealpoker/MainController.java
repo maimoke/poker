@@ -259,6 +259,10 @@ public class MainController implements Initializable {
     private ImageView p7_win;
     @FXML
     private ImageView p8_win;
+    @FXML
+    private AnchorPane Win;
+    @FXML
+    private Button continue_btn;
 
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
