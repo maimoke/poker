@@ -440,15 +440,15 @@ public class MainController implements Initializable {
                 //reset
                 t.reset();
                 d.reset();
-                player_turn = bigBlind;
-                player_turn = findNextPlayer();
-                bigBlind = player_turn;
+                player_turn = smallBlind;
                 player_turn = findNextPlayer();
                 smallBlind = player_turn;
                 player_turn = findNextPlayer();
+                bigBlind = player_turn;               
+                player_turn = findNextPlayer();
                 underTheGun = player_turn;
-                System.out.println("bigBlind = " + bigBlind);
                 System.out.println("smallBlind = " + smallBlind);
+                System.out.println("bigBlind = " + bigBlind);                
                 System.out.println("underTheGun = " + underTheGun);
                 round = 0;
                 raiseThisRound = t.bet(p[bigBlind].raise(10000));
@@ -507,15 +507,15 @@ public class MainController implements Initializable {
             }
             t.reset();
             d.reset();
-            player_turn = bigBlind;
-            player_turn = findNextPlayer();
-            bigBlind = player_turn;
+            player_turn = smallBlind;
             player_turn = findNextPlayer();
             smallBlind = player_turn;
             player_turn = findNextPlayer();
+            bigBlind = player_turn;          
+            player_turn = findNextPlayer();
             underTheGun = player_turn;
-            System.out.println("bigBlind = " + bigBlind);
             System.out.println("smallBlind = " + smallBlind);
+            System.out.println("bigBlind = " + bigBlind);
             System.out.println("underTheGun = " + underTheGun);
             round = 0;
             raiseThisRound = t.bet(p[bigBlind].raise(10000));
