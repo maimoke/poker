@@ -451,7 +451,7 @@ public class MainController implements Initializable {
                 System.out.println("bigBlind = " + bigBlind);                
                 System.out.println("underTheGun = " + underTheGun);
                 round = 0;
-                raiseThisRound = t.bet(p[bigBlind].raise(10000));
+                raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
                 t.bet(p[smallBlind].call(5000));
                 updateMoney();
                 //ui reset
@@ -518,7 +518,7 @@ public class MainController implements Initializable {
             System.out.println("bigBlind = " + bigBlind);
             System.out.println("underTheGun = " + underTheGun);
             round = 0;
-            raiseThisRound = t.bet(p[bigBlind].raise(10000));
+            raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
             t.bet(p[smallBlind].call(5000));
             updateMoney();
             //ui reset
@@ -1183,7 +1183,7 @@ public class MainController implements Initializable {
         fill_raise.setVisible(true);
         pot.setVisible(true);
         bg_pot.setVisible(true);
-        raiseThisRound = t.bet(p[bigBlind].raise(10000));
+        raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
         t.bet(p[smallBlind].call(5000));
         updateMoney();
         call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
