@@ -88,7 +88,13 @@ public class Player {
         this.check=true;
         return raise;
     }
-
+    public int firstTurnRaise(int raise)
+    {
+        this.credit = this.credit - raise;
+        this.betThisRound=this.betThisRound+raise;
+        return raise;
+    }
+    
     public void setCheck(boolean check) {
         this.check = check;
     }
