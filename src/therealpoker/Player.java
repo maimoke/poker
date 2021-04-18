@@ -76,14 +76,30 @@ public class Player {
     }
 
     public int call(int raise) {
-        this.credit = this.credit - raise;
+        if(this.credit>=raise && this.credit!=0){
+            this.credit = this.credit - raise;
+        }else if(this.credit < raise){
+            raise= this.credit;
+            this.credit = this.credit - this.credit;   
+        }else if(this.credit == 0){
+            this.credit = 0;
+            raise =0;
+        }
         this.betThisRound=this.betThisRound+raise;
         this.check=true;
         return raise;
     }
 
     public int raise(int raise) {
-        this.credit = this.credit - raise;
+        if(this.credit>=raise && this.credit!=0){
+            this.credit = this.credit - raise;
+        }else if(this.credit < raise){
+            raise= this.credit;
+            this.credit = this.credit - this.credit;   
+        }else if(this.credit == 0){
+            this.credit = 0;
+            raise =0;
+        }
         this.betThisRound=this.betThisRound+raise;
         this.check=true;
         return raise;
