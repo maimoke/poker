@@ -264,6 +264,39 @@ public class MainController implements Initializable {
     @FXML
     private Button continue_btn;
 
+    public void winVisible() {
+        for (int i = 1; i < 9; i++) {
+            if (!player_ingame[i]) {
+                switch (i) {
+                    case 1:
+                        p1_win.setVisible(false);
+                        break;
+                    case 2:
+                        p2_win.setVisible(false);
+                        break;
+                    case 3:
+                        p3_win.setVisible(false);
+                        break;
+                    case 4:
+                        p4_win.setVisible(false);
+                        break;
+                    case 5:
+                        p5_win.setVisible(false);
+                        break;
+                    case 6:
+                        p6_win.setVisible(false);
+                        break;
+                    case 7:
+                        p7_win.setVisible(false);
+                        break;
+                    case 8:
+                        p8_win.setVisible(false);
+                        break;
+                }
+            }
+        }
+    }
+
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
         int num = c.getVolume();
@@ -557,46 +590,46 @@ public class MainController implements Initializable {
             }
         }
         System.out.println("check " + check);
-        int winner=0;
+        int winner = 0;
         if (check == playeringame - 1) {
             raiseThisRound = 0;
             for (int i = 1; i < 9; i++) {
                 if (player_ingame[i]) {
                     if (!p[i].isFold()) {
                         p[i].reward(t.getPot());
-                        winner=i;
+                        winner = i;
                     }
                     p[i].reset();
                 }
             }
             pot_win.setText(Integer.toString(t.getPot()));
             Win.setVisible(true);
-                        switch (winner) {
-                            case 1:
-                                p1_win.setOpacity(1);
-                                break;
-                            case 2:
-                                p2_win.setOpacity(1);
-                                break;
-                            case 3:
-                                p3_win.setOpacity(1);
-                                break;
-                            case 4:
-                                p4_win.setOpacity(1);
-                                break;
-                            case 5:
-                                p5_win.setOpacity(1);
-                                break;
-                            case 6:
-                                p6_win.setOpacity(1);
-                                break;
-                            case 7:
-                                p7_win.setOpacity(1);
-                                break;
-                            case 8:
-                                p8_win.setOpacity(1);
-                                break;
-                        }
+            switch (winner) {
+                case 1:
+                    p1_win.setOpacity(1);
+                    break;
+                case 2:
+                    p2_win.setOpacity(1);
+                    break;
+                case 3:
+                    p3_win.setOpacity(1);
+                    break;
+                case 4:
+                    p4_win.setOpacity(1);
+                    break;
+                case 5:
+                    p5_win.setOpacity(1);
+                    break;
+                case 6:
+                    p6_win.setOpacity(1);
+                    break;
+                case 7:
+                    p7_win.setOpacity(1);
+                    break;
+                case 8:
+                    p8_win.setOpacity(1);
+                    break;
+            }
             resetToNextRound();
             startGameDraw();
             call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
@@ -1242,7 +1275,7 @@ public class MainController implements Initializable {
             startGameDraw();
             setCardVisible();
         }
-
+        winVisible();
         role_assign();
         player_turn = underTheGun;
         turn_indicator();
@@ -1428,22 +1461,22 @@ public class MainController implements Initializable {
 
     @FXML
     private void raise(ActionEvent event) {
-        if (Integer.parseInt(fill_raise.getText())>0){
-        raiseTimeThisRound++;
-        if (raiseTimeThisRound == 3) {
-            btn_raise.setVisible(false);
-            fill_raise.setVisible(false);
-        }
-        t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
-        raiseThisRound += t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
-        showBack(player_turn);
-        checkFold();
-        player_turn = findNextPlayer();
-        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
-        fill_raise.setText("");
-        checkRound();
-        turn_indicator();
-        updateMoney();
+        if (Integer.parseInt(fill_raise.getText()) > 0) {
+            raiseTimeThisRound++;
+            if (raiseTimeThisRound == 3) {
+                btn_raise.setVisible(false);
+                fill_raise.setVisible(false);
+            }
+            t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
+            raiseThisRound += t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
+            showBack(player_turn);
+            checkFold();
+            player_turn = findNextPlayer();
+            call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
+            fill_raise.setText("");
+            checkRound();
+            turn_indicator();
+            updateMoney();
         }
     }
 
