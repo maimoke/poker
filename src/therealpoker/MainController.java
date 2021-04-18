@@ -1428,6 +1428,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void raise(ActionEvent event) {
+        if (Integer.parseInt(fill_raise.getText())>0){
         raiseTimeThisRound++;
         if (raiseTimeThisRound == 3) {
             btn_raise.setVisible(false);
@@ -1443,7 +1444,7 @@ public class MainController implements Initializable {
         checkRound();
         turn_indicator();
         updateMoney();
-
+        }
     }
 
     @FXML
