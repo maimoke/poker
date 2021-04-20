@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package therealpoker;
 
 import java.io.IOException;
@@ -25,11 +20,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.shape.Rectangle;
 
-/**
- * FXML Controller class
- *
- * @author Moke
- */
 public class MainController implements Initializable {
 
     public Deck d = new Deck();
@@ -335,11 +325,8 @@ public class MainController implements Initializable {
                     case 7: player7.setOpacity(0.2);break;
                     case 8: player8.setOpacity(0.2);break;
                 }
-        
-                
-                
-            }
-            
+
+            }            
             
         }
         if (bankruptAmount==playeringame-1)
