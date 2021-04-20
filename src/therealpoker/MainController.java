@@ -5,6 +5,7 @@
  */
 package therealpoker;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -16,8 +17,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -263,6 +268,23 @@ public class MainController implements Initializable {
     private AnchorPane Win;
     @FXML
     private Button continue_btn;
+    @FXML
+    private AnchorPane Video;
+    @FXML
+    private MediaView intro;
+    private Media media;
+    private MediaPlayer mediaPlayer;
+
+    private void daengYellAtYou() {
+        Video.setVisible(true);
+        mediaPlayer.play();
+    }
+
+    @FXML
+    private void daengPlsStop(MouseEvent event) {
+        mediaPlayer.stop();
+        Video.setVisible(false);
+    }
 
     public void winVisible() {
         for (int i = 1; i < 9; i++) {
@@ -967,9 +989,14 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        media = new Media(getClass().getResource("Prof_Daeng.mp4").toExternalForm());
+        mediaPlayer = new MediaPlayer(media);
+        intro.setMediaPlayer(mediaPlayer);
+
         MainMenu.setVisible(true);
         Game.setVisible(false);
         Win.setVisible(false);
+        Video.setVisible(false);
         stupid_pane.setCursor(Cursor.DEFAULT);
     }
 
@@ -1460,23 +1487,31 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void raise(ActionEvent event) {
-        if (Integer.parseInt(fill_raise.getText()) > 0) {
-            raiseTimeThisRound++;
-            if (raiseTimeThisRound == 3) {
-                btn_raise.setVisible(false);
-                fill_raise.setVisible(false);
+    private void raise(ActionEvent event) throws IOException{
+        try {
+            if (Integer.parseInt(fill_raise.getText()) > 0) {
+                raiseTimeThisRound++;
+                if (raiseTimeThisRound == 3) {
+                    btn_raise.setVisible(false);
+                    fill_raise.setVisible(false);
+                }
+                t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
+                raiseThisRound += t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
+                showBack(player_turn);
+                checkFold();
+                player_turn = findNextPlayer();
+                call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
+                fill_raise.setText("");
+                checkRound();
+                turn_indicator();
+                updateMoney();
             }
-            t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
-            raiseThisRound += t.bet(p[player_turn].raise(Integer.parseInt(fill_raise.getText())));
-            showBack(player_turn);
-            checkFold();
-            player_turn = findNextPlayer();
-            call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
-            fill_raise.setText("");
-            checkRound();
-            turn_indicator();
-            updateMoney();
+            else if (Integer.parseInt(fill_raise.getText()) <= 0){
+                daengYellAtYou();
+            }
+        } 
+        catch(Exception e)  {
+            daengYellAtYou();
         }
     }
 
@@ -1572,4 +1607,5 @@ public class MainController implements Initializable {
         p7_win.setOpacity(0.3);
         p8_win.setOpacity(0.3);
     }
+
 }
