@@ -297,6 +297,40 @@ public class MainController implements Initializable {
         }
     }
 
+    public void bankruptCheck(){
+        int bankruptAmount=0;
+        for (int i=1;i<9;i++){
+            if (p[i].getCredit()==0){
+                p[i].fold();
+                bankruptAmount++;
+                switch (i){
+                    case 1: player1.setOpacity(0.2) ;break;
+                    case 2: player2.setOpacity(0.2);break;
+                    case 3: player3.setOpacity(0.2);break;
+                    case 4: player4.setOpacity(0.2);break;
+                    case 5: player5.setOpacity(0.2);break;
+                    case 6: player6.setOpacity(0.2);break;
+                    case 7: player7.setOpacity(0.2);break;
+                    case 8: player8.setOpacity(0.2);break;
+                }
+        
+                
+                
+            }
+            
+            
+        }
+        if (bankruptAmount==playeringame-1)
+        {
+            //lastManStandingPane
+        }
+        
+        
+        
+        
+        
+        
+    }
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
         int num = c.getVolume();
