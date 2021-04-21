@@ -264,6 +264,16 @@ public class MainController implements Initializable {
     private MediaView intro;
     private Media media;
     private MediaPlayer mediaPlayer;
+    @FXML
+    private AnchorPane TheOne;
+    @FXML
+    private ImageView the_one_bg;
+    @FXML
+    private ImageView p_the_one;
+    @FXML
+    private Button play_again_btn;
+    @FXML
+    private Button to_mainmenu_btn;
 
     private void daengYellAtYou() {
         Video.setVisible(true);
@@ -309,37 +319,82 @@ public class MainController implements Initializable {
         }
     }
 
-    public void bankruptCheck(){
-        int bankruptAmount=0;
-        for (int i=1;i<9;i++){
-            if (p[i].getCredit()==0){
-                p[i].fold();
-                bankruptAmount++;
-                switch (i){
-                    case 1: player1.setOpacity(0.2) ;break;
-                    case 2: player2.setOpacity(0.2);break;
-                    case 3: player3.setOpacity(0.2);break;
-                    case 4: player4.setOpacity(0.2);break;
-                    case 5: player5.setOpacity(0.2);break;
-                    case 6: player6.setOpacity(0.2);break;
-                    case 7: player7.setOpacity(0.2);break;
-                    case 8: player8.setOpacity(0.2);break;
-                }
+    public void bankruptCheck() {
+        int bankruptAmount = 0;
+        int lastone = 0;
+        for (int i = 1; i < 9; i++) {
+            if (player_ingame[i]) {
+                if (p[i].getCredit() == 0) {
+                    p[i].setBankrupt(true);
+                    bankruptAmount++;
+                    switch (i) {
+                        case 1:
+                            player1.setOpacity(0.2);
+                            break;
+                        case 2:
+                            player2.setOpacity(0.2);
+                            break;
+                        case 3:
+                            player3.setOpacity(0.2);
+                            break;
+                        case 4:
+                            player4.setOpacity(0.2);
+                            break;
+                        case 5:
+                            player5.setOpacity(0.2);
+                            break;
+                        case 6:
+                            player6.setOpacity(0.2);
+                            break;
+                        case 7:
+                            player7.setOpacity(0.2);
+                            break;
+                        case 8:
+                            player8.setOpacity(0.2);
+                            break;
+                    }
 
-            }            
-            
+                } else {
+                    lastone = i;
+                }
+            }
+
         }
-        if (bankruptAmount==playeringame-1)
-        {
+        if (bankruptAmount == playeringame - 1) {
             //lastManStandingPane
+            TheOne.setVisible(true);
+            Image imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FourOfSpade.png"));
+            switch (lastone) {
+                case 1:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player1.png"));
+                    break;
+                case 2:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player2.png"));
+                    break;
+                case 3:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player3.png"));
+                    break;
+                case 4:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player4.png"));
+                    break;
+                case 5:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player5.png"));
+                    break;
+                case 6:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player6.png"));
+                    break;
+                case 7:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player7.png"));
+                    break;
+                case 8:
+                    imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Player/player8.png"));
+                    break;
+            }
+            p_the_one.setImage(imaged);
         }
-        
-        
-        
-        
-        
-        
+
     }
+
     public void showCard(ImageView view, Card c) {
         int type = c.getSuit();
         int num = c.getVolume();
@@ -467,16 +522,16 @@ public class MainController implements Initializable {
     public void checkRound() {
         //check if all player betThisRound=raiseThisRound
         int check = 0;
-        for (int i = 0; i < 9; i++) {
+        for (int i = 1; i < 9; i++) {
             if (player_ingame[i]) {
-                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck())) {
+                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck()) || p[i].isAllIn()) {
                     check++;
                 }
             }
         }
         if (playeringame == check) {
             raiseThisRound = 0;
-            for (int i = 0; i < 9; i++) {
+            for (int i = 1; i < 9; i++) {
                 if (player_ingame[i]) {
                     p[i].turnEndResetBet();
                     p[i].setCheck(false);
@@ -610,7 +665,7 @@ public class MainController implements Initializable {
         player6.setOpacity(1);
         player7.setOpacity(1);
         player8.setOpacity(1);
-
+        bankruptCheck();
     }
 
     public int findNextPlayer() {
@@ -618,8 +673,10 @@ public class MainController implements Initializable {
             if (i == 0) {
                 i = 8;
             }
-            if (player_ingame[i] && !p[i].isFold()) {
-                return i;
+            if (player_ingame[i]) {
+                if (!p[i].isFold() && !p[i].isBankrupt()) {
+                    return i;
+                }
             }
         }
         return 0;
@@ -1018,6 +1075,7 @@ public class MainController implements Initializable {
         Game.setVisible(false);
         Win.setVisible(false);
         Video.setVisible(false);
+        TheOne.setVisible(false);
         stupid_pane.setCursor(Cursor.DEFAULT);
     }
 
@@ -1508,7 +1566,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void raise(ActionEvent event) throws IOException{
+    private void raise(ActionEvent event) throws IOException {
         try {
             if (Integer.parseInt(fill_raise.getText()) > 0) {
                 raiseTimeThisRound++;
@@ -1526,12 +1584,10 @@ public class MainController implements Initializable {
                 checkRound();
                 turn_indicator();
                 updateMoney();
-            }
-            else if (Integer.parseInt(fill_raise.getText()) <= 0){
+            } else if (Integer.parseInt(fill_raise.getText()) <= 0) {
                 daengYellAtYou();
             }
-        } 
-        catch(Exception e)  {
+        } catch (Exception e) {
             daengYellAtYou();
         }
     }
