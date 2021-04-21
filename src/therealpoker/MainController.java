@@ -417,6 +417,8 @@ public class MainController implements Initializable {
                     break;
             }
             p_the_one.setImage(imaged);
+            for (int j=1;j<9;j++)
+                if (player_ingame[j]) p[i].setBankrupt(false);
         }
 
     }
@@ -550,7 +552,7 @@ public class MainController implements Initializable {
         int check = 0;
         for (int i = 1; i < 9; i++) {
             if (player_ingame[i]) {
-                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck()) || p[i].isAllIn()) {
+                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck()) || p[i].isAllIn()||p[i].isBankrupt()) {
                     check++;
                 }
             }
@@ -591,8 +593,8 @@ public class MainController implements Initializable {
                 int winnerAmount = 0;
                 long highestScore = 0;
                 boolean[] win = new boolean[9];
-                for (int i = 0; i < 9; i++) {
-                    if (player_ingame[i] && !p[i].isFold()) {
+                for (int i = 1; i < 9; i++) {
+                    if (player_ingame[i] && !p[i].isFold()&&!p[i].isBankrupt()) {
                         c[i] = new Checking(p[i], t);
                         if (c[i].getScore() > highestScore) {
                             highestScore = c[i].getScore();
@@ -711,7 +713,7 @@ public class MainController implements Initializable {
     public boolean checkFold() {
         int check = 0;
         for (int i = 1; i < 9; i++) {
-            if (player_ingame[i] && p[i].isFold()) {
+            if (player_ingame[i] && (p[i].isFold()||p[i].isBankrupt())) {
                 check++;
             }
         }
@@ -1385,8 +1387,8 @@ public class MainController implements Initializable {
 
     public void startGameDraw() {
         for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
-            for (int playerItr = 0; playerItr < 9; playerItr++) {
-                if (player_ingame[playerItr]) {
+            for (int playerItr = 1; playerItr < 9; playerItr++) {
+                if (player_ingame[playerItr]&&!p[playerItr].isBankrupt()) {
                     p[playerItr].draw(d.draw()); //draw 2 per player
                 }
             }
@@ -1456,7 +1458,7 @@ public class MainController implements Initializable {
             player6_sit_btn.setVisible(false);
             player7_sit_btn.setVisible(false);
             player8_sit_btn.setVisible(false);
-            for (int playerItr = 0; playerItr < 9; playerItr++) {
+            for (int playerItr = 1; playerItr < 9; playerItr++) {
                 if (player_ingame[playerItr]) {
                     p[playerItr] = new Player(1000000); //give player credit
                 }
