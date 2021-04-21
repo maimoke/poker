@@ -813,9 +813,61 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Video" prefHeight="720.0" prefWidth="1280.0" onMouseClicked="#daengPlsStop">
+      <AnchorPane fx:id="Video" onMouseClicked="#daengPlsStop" prefHeight="720.0" prefWidth="1280.0">
          <children>
-            <MediaView fx:id="intro" fitHeight="200.0" fitWidth="100.0" layoutX="1118.0" layoutY="379.0" nodeOrientation="INHERIT"  />
+            <MediaView fx:id="intro" fitHeight="200.0" fitWidth="100.0" layoutX="1118.0" layoutY="379.0" nodeOrientation="INHERIT" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="TheOne" prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <ImageView fx:id="the_one_bg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/The_One.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="p_the_one" fitHeight="388.0" fitWidth="391.0" layoutX="422.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/Player/dealer.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="play_again_btn" layoutX="1000.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Play Again">
+               <effect>
+                  <Lighting diffuseConstant="1.65">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.11087719351053238" green="0.8315789699554443" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Agency FB Bold" size="19.0" />
+               </font>
+            </Button>
+            <Button fx:id="to_mainmenu_btn" layoutX="1129.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Main Menu">
+               <effect>
+                  <Lighting diffuseConstant="1.65">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant>
+                           <color>
+                              <Color red="0.11087719351053238" green="0.8315789699554443" />
+                           </color>
+                        </Light.Distant>
+                     </light>
+                  </Lighting>
+               </effect>
+               <font>
+                  <Font name="Agency FB Bold" size="19.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
