@@ -1773,7 +1773,128 @@ public class MainController implements Initializable {
 
     @FXML
     private void PlayAgainBtn(ActionEvent event) {
-        play(event);
+        playeringame=0;
+        System.out.println("sawasdeekrub thansamachick");
+        MainMenu.setVisible(false);
+        TheOne.setVisible(false);
+        Game.setVisible(true);
+
+        //gameplay hide button+textfield
+        btn_fold.setVisible(false);
+        fill_raise.setVisible(false);
+        btn_raise.setVisible(false);
+        btn_check.setVisible(false);
+
+        //player
+        player1.setVisible(false);
+        player2.setVisible(false);
+        player3.setVisible(false);
+        player4.setVisible(false);
+        player5.setVisible(false);
+        player6.setVisible(false);
+        player7.setVisible(false);
+        player8.setVisible(false);
+        dealer.setVisible(false);
+        for (int i=1;i<9;i++){
+            player_ingame[i]=false;
+        }
+        
+        //btn
+        start_btn.setVisible(true);
+        player1_sit_btn.setVisible(true);
+        player2_sit_btn.setVisible(true);
+        player3_sit_btn.setVisible(true);
+        player4_sit_btn.setVisible(true);
+        player5_sit_btn.setVisible(true);
+        player6_sit_btn.setVisible(true);
+        player7_sit_btn.setVisible(true);
+        player8_sit_btn.setVisible(true);
+        game_setup = true;
+        //point
+        point_p1_turn.setVisible(false);
+        point_p2_turn.setVisible(false);
+        point_p3_turn.setVisible(false);
+        point_p4_turn.setVisible(false);
+        point_p5_turn.setVisible(false);
+        point_p6_turn.setVisible(false);
+        point_p7_turn.setVisible(false);
+        point_p8_turn.setVisible(false);
+        //card
+        setCardVisible();
+        //money
+        bg_p1.setVisible(false);
+        money_p1.setVisible(false);
+        bg_p2.setVisible(false);
+        money_p2.setVisible(false);
+        bg_p3.setVisible(false);
+        money_p3.setVisible(false);
+        bg_p4.setVisible(false);
+        money_p4.setVisible(false);
+        bg_p5.setVisible(false);
+        money_p5.setVisible(false);
+        bg_p6.setVisible(false);
+        money_p6.setVisible(false);
+        bg_p7.setVisible(false);
+        money_p7.setVisible(false);
+        bg_p8.setVisible(false);
+        money_p8.setVisible(false);
+        pot.setVisible(false);
+        bg_pot.setVisible(false);
+        //win
+        p1_win.setOpacity(0.3);
+        p2_win.setOpacity(0.3);
+        p3_win.setOpacity(0.3);
+        p4_win.setOpacity(0.3);
+        p5_win.setOpacity(0.3);
+        p6_win.setOpacity(0.3);
+        p7_win.setOpacity(0.3);
+        p8_win.setOpacity(0.3);
+        //
+        fail_p1.setVisible(false);
+        fail_p2.setVisible(false);
+        fail_p3.setVisible(false);
+        fail_p4.setVisible(false);
+        fail_p5.setVisible(false);
+        fail_p6.setVisible(false);
+        fail_p7.setVisible(false);
+        fail_p8.setVisible(false);
+        //card
+        card_p1_1.setVisible(false);
+        card_p1_2.setVisible(false);
+        card_p2_1.setVisible(false);
+        card_p2_2.setVisible(false);
+        card_p3_1.setVisible(false);
+        card_p3_2.setVisible(false);
+        card_p4_1.setVisible(false);
+        card_p4_2.setVisible(false);
+        card_p5_1.setVisible(false);
+        card_p5_2.setVisible(false);
+        card_p6_1.setVisible(false);
+        card_p6_2.setVisible(false);
+        card_p7_1.setVisible(false);
+        card_p7_2.setVisible(false);
+        card_p8_1.setVisible(false);
+        card_p8_2.setVisible(false);
+        backcard_p1_1.setVisible(false);
+        backcard_p1_2.setVisible(false);
+        backcard_p2_1.setVisible(false);
+        backcard_p2_2.setVisible(false);
+        backcard_p3_1.setVisible(false);
+        backcard_p3_2.setVisible(false);
+        backcard_p4_1.setVisible(false);
+        backcard_p4_2.setVisible(false);
+        backcard_p5_1.setVisible(false);
+        backcard_p5_2.setVisible(false);
+        backcard_p6_1.setVisible(false);
+        backcard_p6_2.setVisible(false);
+        backcard_p7_1.setVisible(false);
+        backcard_p7_2.setVisible(false);
+        backcard_p8_1.setVisible(false);
+        backcard_p8_2.setVisible(false);
+        
+        //checkMoney
+        call_value.setVisible(false);
+        
     }
 
     @FXML
