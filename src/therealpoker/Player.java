@@ -61,6 +61,15 @@ public class Player {
         this.betThisRound = 0;
         this.allIn = false;
     }
+    public void resetall(){
+        this.fold = false;
+        this.check = false;
+        cardOnHand.clear();
+        this.betThisRound = 0;
+        this.allIn = false;
+        this.credit=0;
+        this.bankrupt=false;
+    }
 
     public int getCredit() {
         return credit;
