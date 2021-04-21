@@ -274,6 +274,22 @@ public class MainController implements Initializable {
     private Button play_again_btn;
     @FXML
     private Button to_mainmenu_btn;
+    @FXML
+    private ImageView fail_p1;
+    @FXML
+    private ImageView fail_p2;
+    @FXML
+    private ImageView fail_p3;
+    @FXML
+    private ImageView fail_p4;
+    @FXML
+    private ImageView fail_p5;
+    @FXML
+    private ImageView fail_p6;
+    @FXML
+    private ImageView fail_p7;
+    @FXML
+    private ImageView fail_p8;
 
     private void daengYellAtYou() {
         Video.setVisible(true);
@@ -1683,6 +1699,14 @@ public class MainController implements Initializable {
         p6_win.setOpacity(0.3);
         p7_win.setOpacity(0.3);
         p8_win.setOpacity(0.3);
+    }
+
+    @FXML
+    private void PlayAgainBtn(ActionEvent event) {
+    }
+
+    @FXML
+    private void MainMenuBtn(ActionEvent event) {
     }
 
 }

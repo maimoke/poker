@@ -104,7 +104,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Game" prefHeight="720.0" prefWidth="1280.0" visible="false">
+      <AnchorPane fx:id="Game" prefHeight="720.0" prefWidth="1280.0">
          <children>
             <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -736,6 +736,46 @@
                   <Image url="@รวมไพ่/behide.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="fail_p1" fitHeight="97.0" fitWidth="150.0" layoutX="215.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p2" fitHeight="97.0" fitWidth="150.0" layoutX="87.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p3" fitHeight="97.0" fitWidth="150.0" layoutX="155.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p4" fitHeight="97.0" fitWidth="150.0" layoutX="436.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p5" fitHeight="97.0" fitWidth="150.0" layoutX="690.0" layoutY="533.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p6" fitHeight="97.0" fitWidth="150.0" layoutX="972.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p7" fitHeight="97.0" fitWidth="150.0" layoutX="1028.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fail_p8" fitHeight="97.0" fitWidth="150.0" layoutX="914.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@รวมไพ่/UI/Fail_stamp.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Win" prefHeight="720.0" prefWidth="1280.0" visible="false">
@@ -813,12 +853,12 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="Video" onMouseClicked="#daengPlsStop" prefHeight="720.0" prefWidth="1280.0">
+      <AnchorPane fx:id="Video" onMouseClicked="#daengPlsStop" prefHeight="720.0" prefWidth="1280.0" visible="false">
          <children>
             <MediaView fx:id="intro" fitHeight="200.0" fitWidth="100.0" layoutX="1118.0" layoutY="379.0" nodeOrientation="INHERIT" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="TheOne" prefHeight="720.0" prefWidth="1280.0">
+      <AnchorPane fx:id="TheOne" prefHeight="720.0" prefWidth="1280.0" visible="false">
          <children>
             <ImageView fx:id="the_one_bg" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -830,7 +870,7 @@
                   <Image url="@รวมไพ่/Player/dealer.png" />
                </image>
             </ImageView>
-            <Button fx:id="play_again_btn" layoutX="1000.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Play Again">
+            <Button fx:id="play_again_btn" layoutX="1000.0" layoutY="640.0" mnemonicParsing="false" onAction="#PlayAgainBtn" prefHeight="40.0" prefWidth="100.0" text="Play Again">
                <effect>
                   <Lighting diffuseConstant="1.65">
                      <bumpInput>
@@ -849,7 +889,7 @@
                   <Font name="Agency FB Bold" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="to_mainmenu_btn" layoutX="1129.0" layoutY="640.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Main Menu">
+            <Button fx:id="to_mainmenu_btn" layoutX="1129.0" layoutY="640.0" mnemonicParsing="false" onAction="#MainMenuBtn" prefHeight="40.0" prefWidth="100.0" text="Main Menu">
                <effect>
                   <Lighting diffuseConstant="1.65">
                      <bumpInput>
