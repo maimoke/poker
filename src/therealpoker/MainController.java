@@ -303,6 +303,15 @@ public class MainController implements Initializable {
     }
 
     public void winVisible() {
+        p1_win.setVisible(true);
+        p2_win.setVisible(true);
+        p3_win.setVisible(true);
+        p4_win.setVisible(true);
+        p5_win.setVisible(true);
+        p6_win.setVisible(true);
+        p7_win.setVisible(true);
+        p8_win.setVisible(true);
+        
         for (int i = 1; i < 9; i++) {
             if (!player_ingame[i]) {
                 switch (i) {
@@ -369,6 +378,7 @@ public class MainController implements Initializable {
 
                 }
             }
+            setCardVisible();
 
         }
     }
@@ -418,7 +428,7 @@ public class MainController implements Initializable {
             }
             p_the_one.setImage(imaged);
             for (int j=1;j<9;j++)
-                if (player_ingame[j]) p[i].setBankrupt(false);
+                if (player_ingame[j]) p[j].setBankrupt(false);
         }
 
     }
@@ -723,7 +733,7 @@ public class MainController implements Initializable {
             raiseThisRound = 0;
             for (int i = 1; i < 9; i++) {
                 if (player_ingame[i]) {
-                    if (!p[i].isFold()) {
+                    if (!p[i].isFold()&&!p[i].isBankrupt()) {
                         p[i].reward(t.getPot());
                         winner = i;
                     }
@@ -1005,7 +1015,7 @@ public class MainController implements Initializable {
     }
 
     public void setCardVisible() {
-        if (player_ingame[1]) {
+        if (player_ingame[1]&&!p[1].isBankrupt()) {
             card_p1_1.setVisible(true);
             card_p1_2.setVisible(true);
             backcard_p1_1.setVisible(true);
@@ -1016,7 +1026,7 @@ public class MainController implements Initializable {
             backcard_p1_1.setVisible(false);
             backcard_p1_2.setVisible(false);
         }
-        if (player_ingame[2]) {
+        if (player_ingame[2]&&!p[2].isBankrupt()) {
             card_p2_1.setVisible(true);
             card_p2_2.setVisible(true);
             backcard_p2_1.setVisible(true);
@@ -1027,7 +1037,7 @@ public class MainController implements Initializable {
             backcard_p2_1.setVisible(false);
             backcard_p2_2.setVisible(false);
         }
-        if (player_ingame[3]) {
+        if (player_ingame[3]&&!p[3].isBankrupt()) {
             card_p3_1.setVisible(true);
             card_p3_2.setVisible(true);
             backcard_p3_1.setVisible(true);
@@ -1038,7 +1048,7 @@ public class MainController implements Initializable {
             backcard_p3_1.setVisible(false);
             backcard_p3_2.setVisible(false);
         }
-        if (player_ingame[4]) {
+        if (player_ingame[4]&&!p[4].isBankrupt()) {
             card_p4_1.setVisible(true);
             card_p4_2.setVisible(true);
             backcard_p4_1.setVisible(true);
@@ -1049,7 +1059,7 @@ public class MainController implements Initializable {
             backcard_p4_1.setVisible(false);
             backcard_p4_2.setVisible(false);
         }
-        if (player_ingame[5]) {
+        if (player_ingame[5]&&!p[5].isBankrupt()) {
             card_p5_1.setVisible(true);
             card_p5_2.setVisible(true);
             backcard_p5_1.setVisible(true);
@@ -1060,7 +1070,7 @@ public class MainController implements Initializable {
             backcard_p5_1.setVisible(false);
             backcard_p5_2.setVisible(false);
         }
-        if (player_ingame[6]) {
+        if (player_ingame[6]&&!p[6].isBankrupt()) {
             card_p6_1.setVisible(true);
             card_p6_2.setVisible(true);
             backcard_p6_1.setVisible(true);
@@ -1071,7 +1081,7 @@ public class MainController implements Initializable {
             backcard_p6_1.setVisible(false);
             backcard_p6_2.setVisible(false);
         }
-        if (player_ingame[7]) {
+        if (player_ingame[7]&&!p[7].isBankrupt()) {
             card_p7_1.setVisible(true);
             card_p7_2.setVisible(true);
             backcard_p7_1.setVisible(true);
@@ -1082,7 +1092,7 @@ public class MainController implements Initializable {
             backcard_p7_1.setVisible(false);
             backcard_p7_2.setVisible(false);
         }
-        if (player_ingame[8]) {
+        if (player_ingame[8]&&!p[8].isBankrupt()) {
             card_p8_1.setVisible(true);
             card_p8_2.setVisible(true);
             backcard_p8_1.setVisible(true);
@@ -1394,7 +1404,7 @@ public class MainController implements Initializable {
             }
         }
         for (int i = 1; i < 9; i++) {
-            if (player_ingame[i]) {
+            if (player_ingame[i]&&!p[i].isBankrupt()) {
                 if (i == 1) {
                     showCard(card_p1_1, p[1].getCard(0));
                     showCard(card_p1_2, p[1].getCard(1));
