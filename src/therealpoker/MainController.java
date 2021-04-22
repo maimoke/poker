@@ -1,5 +1,6 @@
 package therealpoker;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -54,6 +56,11 @@ public class MainController implements Initializable {
     boolean showCardP8_1 = false;
     boolean showCardP8_2 = false;
 
+    private Media media;
+    private Media buttonSound;
+    private MediaPlayer soundEffect;
+    private MediaPlayer mediaPlayer;
+    
     @FXML
     private AnchorPane stupid_pane;
     @FXML
@@ -262,8 +269,6 @@ public class MainController implements Initializable {
     private AnchorPane Video;
     @FXML
     private MediaView intro;
-    private Media media;
-    private MediaPlayer mediaPlayer;
     @FXML
     private AnchorPane TheOne;
     @FXML
@@ -290,6 +295,32 @@ public class MainController implements Initializable {
     private ImageView fail_p7;
     @FXML
     private ImageView fail_p8;
+    @FXML
+    private MediaView btn_sound;
+    
+    String path;
+    File file;
+
+    private void soundEffect(String type) {
+        if (type.contains("press") || type.contains("quit")) {
+            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\btn_press.mp3" ;
+        }
+        else if(type.contains("call") || type.contains("raise")){
+            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\call_raise.mp3" ;
+        }
+        else if(type.contains("fold")){
+            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\Painful_Scream.mp3" ;
+        }
+        else if(type.contains("win")){
+            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\win_round.mp3" ;
+        }
+        
+        buttonSound = new Media(new File(path).toURI().toString());
+        soundEffect = new MediaPlayer(buttonSound);
+        btn_sound.setMediaPlayer(soundEffect);
+        soundEffect.play();    
+
+    }
 
     private void daengYellAtYou() {
         Video.setVisible(true);
@@ -311,7 +342,7 @@ public class MainController implements Initializable {
         p6_win.setVisible(true);
         p7_win.setVisible(true);
         p8_win.setVisible(true);
-        
+
         for (int i = 1; i < 9; i++) {
             if (!player_ingame[i]) {
                 switch (i) {
@@ -399,6 +430,7 @@ public class MainController implements Initializable {
         if (bankruptAmount == playeringame - 1) {
             //lastManStandingPane
             TheOne.setVisible(true);
+            soundEffect("win");
             Image imaged = new Image(getClass().getResourceAsStream("รวมไพ่/Spade/FourOfSpade.png"));
             switch (lastOne) {
                 case 1:
@@ -427,8 +459,11 @@ public class MainController implements Initializable {
                     break;
             }
             p_the_one.setImage(imaged);
-            for (int j=1;j<9;j++)
-                if (player_ingame[j]) p[j].setBankrupt(false);
+            for (int j = 1; j < 9; j++) {
+                if (player_ingame[j]) {
+                    p[j].setBankrupt(false);
+                }
+            }
         }
 
     }
@@ -562,7 +597,7 @@ public class MainController implements Initializable {
         int check = 0;
         for (int i = 1; i < 9; i++) {
             if (player_ingame[i]) {
-                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck()) || p[i].isAllIn()||p[i].isBankrupt()) {
+                if (p[i].isFold() || (p[i].getBetThisRound() == raiseThisRound && p[i].isCheck()) || p[i].isAllIn() || p[i].isBankrupt()) {
                     check++;
                 }
             }
@@ -604,7 +639,7 @@ public class MainController implements Initializable {
                 long highestScore = 0;
                 boolean[] win = new boolean[9];
                 for (int i = 1; i < 9; i++) {
-                    if (player_ingame[i] && !p[i].isFold()&&!p[i].isBankrupt()) {
+                    if (player_ingame[i] && !p[i].isFold() && !p[i].isBankrupt()) {
                         c[i] = new Checking(p[i], t);
                         if (c[i].getScore() > highestScore) {
                             highestScore = c[i].getScore();
@@ -723,7 +758,7 @@ public class MainController implements Initializable {
     public boolean checkFold() {
         int check = 0;
         for (int i = 1; i < 9; i++) {
-            if (player_ingame[i] && (p[i].isFold()||p[i].isBankrupt())) {
+            if (player_ingame[i] && (p[i].isFold() || p[i].isBankrupt())) {
                 check++;
             }
         }
@@ -733,7 +768,7 @@ public class MainController implements Initializable {
             raiseThisRound = 0;
             for (int i = 1; i < 9; i++) {
                 if (player_ingame[i]) {
-                    if (!p[i].isFold()&&!p[i].isBankrupt()) {
+                    if (!p[i].isFold() && !p[i].isBankrupt()) {
                         p[i].reward(t.getPot());
                         winner = i;
                     }
@@ -742,6 +777,7 @@ public class MainController implements Initializable {
             }
             pot_win.setText(Integer.toString(t.getPot()));
             Win.setVisible(true);
+            soundEffect("win");
             switch (winner) {
                 case 1:
                     p1_win.setOpacity(1);
@@ -907,9 +943,9 @@ public class MainController implements Initializable {
     }
 
     public void role_assign() {
-        smallBlind=0;
-        bigBlind=0;
-        underTheGun=0;
+        smallBlind = 0;
+        bigBlind = 0;
+        underTheGun = 0;
         int temp = (int) (Math.random() * 69 * playeringame);
         for (int playerItr = 1; temp > 0; playerItr++) {
             if (playerItr == 9) {
@@ -1015,7 +1051,7 @@ public class MainController implements Initializable {
     }
 
     public void setCardVisible() {
-        if (player_ingame[1]&&!p[1].isBankrupt()) {
+        if (player_ingame[1] && !p[1].isBankrupt()) {
             card_p1_1.setVisible(true);
             card_p1_2.setVisible(true);
             backcard_p1_1.setVisible(true);
@@ -1026,7 +1062,7 @@ public class MainController implements Initializable {
             backcard_p1_1.setVisible(false);
             backcard_p1_2.setVisible(false);
         }
-        if (player_ingame[2]&&!p[2].isBankrupt()) {
+        if (player_ingame[2] && !p[2].isBankrupt()) {
             card_p2_1.setVisible(true);
             card_p2_2.setVisible(true);
             backcard_p2_1.setVisible(true);
@@ -1037,7 +1073,7 @@ public class MainController implements Initializable {
             backcard_p2_1.setVisible(false);
             backcard_p2_2.setVisible(false);
         }
-        if (player_ingame[3]&&!p[3].isBankrupt()) {
+        if (player_ingame[3] && !p[3].isBankrupt()) {
             card_p3_1.setVisible(true);
             card_p3_2.setVisible(true);
             backcard_p3_1.setVisible(true);
@@ -1048,7 +1084,7 @@ public class MainController implements Initializable {
             backcard_p3_1.setVisible(false);
             backcard_p3_2.setVisible(false);
         }
-        if (player_ingame[4]&&!p[4].isBankrupt()) {
+        if (player_ingame[4] && !p[4].isBankrupt()) {
             card_p4_1.setVisible(true);
             card_p4_2.setVisible(true);
             backcard_p4_1.setVisible(true);
@@ -1059,7 +1095,7 @@ public class MainController implements Initializable {
             backcard_p4_1.setVisible(false);
             backcard_p4_2.setVisible(false);
         }
-        if (player_ingame[5]&&!p[5].isBankrupt()) {
+        if (player_ingame[5] && !p[5].isBankrupt()) {
             card_p5_1.setVisible(true);
             card_p5_2.setVisible(true);
             backcard_p5_1.setVisible(true);
@@ -1070,7 +1106,7 @@ public class MainController implements Initializable {
             backcard_p5_1.setVisible(false);
             backcard_p5_2.setVisible(false);
         }
-        if (player_ingame[6]&&!p[6].isBankrupt()) {
+        if (player_ingame[6] && !p[6].isBankrupt()) {
             card_p6_1.setVisible(true);
             card_p6_2.setVisible(true);
             backcard_p6_1.setVisible(true);
@@ -1081,7 +1117,7 @@ public class MainController implements Initializable {
             backcard_p6_1.setVisible(false);
             backcard_p6_2.setVisible(false);
         }
-        if (player_ingame[7]&&!p[7].isBankrupt()) {
+        if (player_ingame[7] && !p[7].isBankrupt()) {
             card_p7_1.setVisible(true);
             card_p7_2.setVisible(true);
             backcard_p7_1.setVisible(true);
@@ -1092,7 +1128,7 @@ public class MainController implements Initializable {
             backcard_p7_1.setVisible(false);
             backcard_p7_2.setVisible(false);
         }
-        if (player_ingame[8]&&!p[8].isBankrupt()) {
+        if (player_ingame[8] && !p[8].isBankrupt()) {
             card_p8_1.setVisible(true);
             card_p8_2.setVisible(true);
             backcard_p8_1.setVisible(true);
@@ -1123,7 +1159,8 @@ public class MainController implements Initializable {
 
     @FXML
     private void play(ActionEvent event) {
-        playeringame=0;
+        soundEffect("press");
+        playeringame = 0;
         System.out.println("sawasdeekrub thansamachick");
         MainMenu.setVisible(false);
         Game.setVisible(true);
@@ -1144,10 +1181,10 @@ public class MainController implements Initializable {
         player7.setVisible(false);
         player8.setVisible(false);
         dealer.setVisible(false);
-        for (int i=1;i<9;i++){
-            player_ingame[i]=false;
+        for (int i = 1; i < 9; i++) {
+            player_ingame[i] = false;
         }
-        
+
         //btn
         start_btn.setVisible(true);
         player1_sit_btn.setVisible(true);
@@ -1240,20 +1277,22 @@ public class MainController implements Initializable {
         backcard_p7_2.setVisible(false);
         backcard_p8_1.setVisible(false);
         backcard_p8_2.setVisible(false);
-        
+
         //checkMoney
         call_value.setVisible(false);
-        
+
     }
 
     @FXML
     private void quit(ActionEvent event) {
+        soundEffect("press");
         System.exit(0);
     }
 
     @FXML
     private void player1_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player1_sit_btn.setVisible(false);
             player1.setVisible(true);
             player_ingame[1] = true;
@@ -1263,6 +1302,7 @@ public class MainController implements Initializable {
     @FXML
     private void player2_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player2_sit_btn.setVisible(false);
             player2.setVisible(true);
             player_ingame[2] = true;
@@ -1272,6 +1312,7 @@ public class MainController implements Initializable {
     @FXML
     private void player3_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player3_sit_btn.setVisible(false);
             player3.setVisible(true);
             player_ingame[3] = true;
@@ -1281,6 +1322,7 @@ public class MainController implements Initializable {
     @FXML
     private void player4_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player4_sit_btn.setVisible(false);
             player4.setVisible(true);
             player_ingame[4] = true;
@@ -1290,6 +1332,7 @@ public class MainController implements Initializable {
     @FXML
     private void player5_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player5_sit_btn.setVisible(false);
             player5.setVisible(true);
             player_ingame[5] = true;
@@ -1299,6 +1342,7 @@ public class MainController implements Initializable {
     @FXML
     private void player6_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player6_sit_btn.setVisible(false);
             player6.setVisible(true);
             player_ingame[6] = true;
@@ -1308,6 +1352,7 @@ public class MainController implements Initializable {
     @FXML
     private void player7_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player7_sit_btn.setVisible(false);
             player7.setVisible(true);
             player_ingame[7] = true;
@@ -1317,6 +1362,7 @@ public class MainController implements Initializable {
     @FXML
     private void player8_sit(ActionEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player8_sit_btn.setVisible(false);
             player8.setVisible(true);
             player_ingame[8] = true;
@@ -1326,6 +1372,7 @@ public class MainController implements Initializable {
     @FXML
     private void player1_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player1.setVisible(false);
             player1_sit_btn.setVisible(true);
             player_ingame[1] = false;
@@ -1335,6 +1382,7 @@ public class MainController implements Initializable {
     @FXML
     private void player2_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player2.setVisible(false);
             player2_sit_btn.setVisible(true);
             player_ingame[2] = false;
@@ -1344,6 +1392,7 @@ public class MainController implements Initializable {
     @FXML
     private void player3_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player3.setVisible(false);
             player3_sit_btn.setVisible(true);
             player_ingame[3] = false;
@@ -1353,6 +1402,7 @@ public class MainController implements Initializable {
     @FXML
     private void player4_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player4.setVisible(false);
             player4_sit_btn.setVisible(true);
             player_ingame[4] = false;
@@ -1362,6 +1412,7 @@ public class MainController implements Initializable {
     @FXML
     private void player5_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player5.setVisible(false);
             player5_sit_btn.setVisible(true);
             player_ingame[5] = false;
@@ -1371,6 +1422,7 @@ public class MainController implements Initializable {
     @FXML
     private void player6_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player6.setVisible(false);
             player6_sit_btn.setVisible(true);
             player_ingame[6] = false;
@@ -1380,6 +1432,7 @@ public class MainController implements Initializable {
     @FXML
     private void player7_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player7.setVisible(false);
             player7_sit_btn.setVisible(true);
             player_ingame[7] = false;
@@ -1389,6 +1442,7 @@ public class MainController implements Initializable {
     @FXML
     private void player8_remove(MouseEvent event) {
         if (game_setup) {
+            soundEffect("press");
             player8.setVisible(false);
             player8_sit_btn.setVisible(true);
             player_ingame[8] = false;
@@ -1398,13 +1452,13 @@ public class MainController implements Initializable {
     public void startGameDraw() {
         for (int start_drawItr = 1; start_drawItr <= 2; start_drawItr++) {
             for (int playerItr = 1; playerItr < 9; playerItr++) {
-                if (player_ingame[playerItr]&&!p[playerItr].isBankrupt()) {
+                if (player_ingame[playerItr] && !p[playerItr].isBankrupt()) {
                     p[playerItr].draw(d.draw()); //draw 2 per player
                 }
             }
         }
         for (int i = 1; i < 9; i++) {
-            if (player_ingame[i]&&!p[i].isBankrupt()) {
+            if (player_ingame[i] && !p[i].isBankrupt()) {
                 if (i == 1) {
                     showCard(card_p1_1, p[1].getCard(0));
                     showCard(card_p1_2, p[1].getCard(1));
@@ -1446,6 +1500,7 @@ public class MainController implements Initializable {
     //gamestart
     @FXML
     private void start(ActionEvent event) {
+        soundEffect("press");
         Card testCardzz = new Card(2, 1);
         t.reset();
         d.reset();
@@ -1454,7 +1509,7 @@ public class MainController implements Initializable {
         for (int i = 1; i < 9; i++) {
             if (player_ingame[i] == true) {
                 playeringame++;
-                System.out.println("p"+i);
+                System.out.println("p" + i);
             }
         }
         if (playeringame > 1) {
@@ -1476,25 +1531,25 @@ public class MainController implements Initializable {
             }
             startGameDraw();
             setCardVisible();
-        winVisible();
-        role_assign();
-        player_turn = underTheGun;
-        turn_indicator();
-        System.out.println("smallBlind = " + smallBlind);
-        System.out.println("bigBlind = " + bigBlind);
-        System.out.println("underTheGun = " + underTheGun);
-        setMoneyVisible();
-        btn_fold.setVisible(true);
-        btn_check.setVisible(true);
-        btn_raise.setVisible(true);
-        fill_raise.setVisible(true);
-        pot.setVisible(true);
-        bg_pot.setVisible(true);
-        raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
-        t.bet(p[smallBlind].call(5000));
-        updateMoney();
-        call_value.setVisible(true);
-        call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
+            winVisible();
+            role_assign();
+            player_turn = underTheGun;
+            turn_indicator();
+            System.out.println("smallBlind = " + smallBlind);
+            System.out.println("bigBlind = " + bigBlind);
+            System.out.println("underTheGun = " + underTheGun);
+            setMoneyVisible();
+            btn_fold.setVisible(true);
+            btn_check.setVisible(true);
+            btn_raise.setVisible(true);
+            fill_raise.setVisible(true);
+            pot.setVisible(true);
+            bg_pot.setVisible(true);
+            raiseThisRound = t.bet(p[bigBlind].firstTurnRaise(10000));
+            t.bet(p[smallBlind].call(5000));
+            updateMoney();
+            call_value.setVisible(true);
+            call_value.setText(Integer.toString(raiseThisRound - p[player_turn].getBetThisRound()));
         }
     }
 
@@ -1612,6 +1667,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void fold(ActionEvent event) {
+        soundEffect("fold");
         p[player_turn].fold();
         switch (player_turn) {
             case 1:
@@ -1652,6 +1708,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void call(ActionEvent event) {
+        soundEffect("call");
         t.bet(p[player_turn].call(raiseThisRound - p[player_turn].getBetThisRound()));
         showBack(player_turn);
         checkFold();
@@ -1666,6 +1723,7 @@ public class MainController implements Initializable {
     private void raise(ActionEvent event) throws IOException {
         try {
             if (Integer.parseInt(fill_raise.getText()) > 0) {
+                soundEffect("raise");
                 raiseTimeThisRound++;
                 if (raiseTimeThisRound == 3) {
                     btn_raise.setVisible(false);
@@ -1785,7 +1843,8 @@ public class MainController implements Initializable {
 
     @FXML
     private void PlayAgainBtn(ActionEvent event) {
-        playeringame=0;
+        soundEffect("press");
+        playeringame = 0;
         System.out.println("sawasdeekrub thansamachick");
         MainMenu.setVisible(false);
         TheOne.setVisible(false);
@@ -1807,10 +1866,10 @@ public class MainController implements Initializable {
         player7.setVisible(false);
         player8.setVisible(false);
         dealer.setVisible(false);
-        for (int i=1;i<9;i++){
-            player_ingame[i]=false;
+        for (int i = 1; i < 9; i++) {
+            player_ingame[i] = false;
         }
-        
+
         //btn
         start_btn.setVisible(true);
         player1_sit_btn.setVisible(true);
@@ -1903,14 +1962,15 @@ public class MainController implements Initializable {
         backcard_p7_2.setVisible(false);
         backcard_p8_1.setVisible(false);
         backcard_p8_2.setVisible(false);
-        
+
         //checkMoney
         call_value.setVisible(false);
-        
+
     }
 
     @FXML
     private void MainMenuBtn(ActionEvent event) {
+        soundEffect("press");
         MainMenu.setVisible(true);
         Game.setVisible(false);
         Win.setVisible(false);
