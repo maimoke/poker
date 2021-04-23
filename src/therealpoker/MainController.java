@@ -60,7 +60,7 @@ public class MainController implements Initializable {
     private Media buttonSound;
     private MediaPlayer soundEffect;
     private MediaPlayer mediaPlayer;
-    
+
     @FXML
     private AnchorPane stupid_pane;
     @FXML
@@ -297,28 +297,25 @@ public class MainController implements Initializable {
     private ImageView fail_p8;
     @FXML
     private MediaView btn_sound;
-    
+
     String path;
     File file;
 
     private void soundEffect(String type) {
+
         if (type.contains("press") || type.contains("quit")) {
-            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\btn_press.mp3" ;
+            path = "Sound/btn_press.mp3";
+        } else if (type.contains("call") || type.contains("raise")) {
+            path = "Sound/call_raise.mp3";
+        } else if (type.contains("fold")) {
+            path = "Sound/Painful_Scream.mp3";
+        } else if (type.contains("win")) {
+            path = "Sound/win_round.mp3";
         }
-        else if(type.contains("call") || type.contains("raise")){
-            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\call_raise.mp3" ;
-        }
-        else if(type.contains("fold")){
-            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\Painful_Scream.mp3" ;
-        }
-        else if(type.contains("win")){
-            path = "C:\\Object Oriented Programming\\Poker Project\\Maimoke\\Poker\\src\\Sound\\win_round.mp3" ;
-        }
-        
-        buttonSound = new Media(new File(path).toURI().toString());
+        buttonSound = new Media(getClass().getResource(path).toExternalForm());
         soundEffect = new MediaPlayer(buttonSound);
         btn_sound.setMediaPlayer(soundEffect);
-        soundEffect.play();    
+        soundEffect.play();
 
     }
 

@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>TheRealPoker</name>
             <source-roots>
+                <root id="src.Sound.dir"/>
                 <root id="src.dir"/>
                 <root id="src.รวมไพ่.dir"/>
             </source-roots>
